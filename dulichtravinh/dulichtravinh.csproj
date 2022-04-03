@@ -76,15 +76,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\css\app.css" />
+    <Content Include="Resources\css\ckeditor.css" />
     <Content Include="Resources\css\root.css" />
+    <Content Include="Resources\js\geographic.js" />
+    <Content Include="Resources\js\translate.js" />
     <Content Include="Services\DiaDiem.asmx" />
     <Content Include="Services\DichVanBan.asmx" />
     <Content Include="Services\HinhAnh.asmx" />
     <Content Include="Web.config" />
     <Content Include="Admin\HinhAnh.aspx" />
     <Content Include="Admin\DiaDiem\Index.aspx" />
-    <Content Include="Admin\DiaDiem\ThemMoi.aspx" />
+    <Content Include="Admin\DiaDiem\Create.aspx" />
     <Content Include="Admin\DanhMuc\Index.aspx" />
+    <Content Include="Admin\DiaDiem\Update.aspx" />
+    <Content Include="Admin\DiaDiem\Delete.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -129,12 +134,12 @@
     <Compile Include="Admin\DiaDiem\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\DiaDiem\ThemMoi.aspx.cs">
-      <DependentUpon>ThemMoi.aspx</DependentUpon>
+    <Compile Include="Admin\DiaDiem\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\DiaDiem\ThemMoi.aspx.designer.cs">
-      <DependentUpon>ThemMoi.aspx</DependentUpon>
+    <Compile Include="Admin\DiaDiem\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\HinhAnhService.cs" />
     <Compile Include="Services\IFrameService.cs" />
@@ -144,6 +149,20 @@
     </Compile>
     <Compile Include="Admin\DanhMuc\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DiaDiem\Update.aspx.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DiaDiem\Update.aspx.designer.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DiaDiem\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DiaDiem\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

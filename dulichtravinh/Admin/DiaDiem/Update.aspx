@@ -1,30 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ThemMoi.aspx.cs" Inherits="dulichtravinh.WebForm3" ValidateRequest="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="dulichtravinh.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .select-image {
-            width: 100%;
-            height: 200px;
-            border: 2px dashed #ccc;
-            border-radius: var(--border-radius);
-            position: relative;
-            cursor: pointer;
-            background-color: #fff;
-        }
-        .select-image:focus {
-            outline: none;
-        }
-        .select-image i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 30px;
-        }
-        .ck-editor__editable_inline {
-            min-height: 400px;
-        }
-    </style>
-
+    <link href="/Resources/css/ckeditor.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <div class="container-fluid">
@@ -109,7 +85,7 @@
                             <h5 class="card-header">Hành động</h5>
                             <div class="card-body">
                                 <asp:Button ID="btnGet" CssClass="btn btn-primary btnSource" Text="Dịch bài" OnClientClick="return false;" runat="server" /> 
-                                <asp:Button type="button" ID="btnSaveAndContinue" Text="Lưu và tiếp tục" CssClass="btn btn-primary" runat="server" OnClick="btnSaveAndContinue_Click" />
+                                <asp:Button type="button" ID="btnSaveAndContinue" Text="Lưu và tiếp tục" CssClass="btn btn-primary" runat="server"/>
                                 <asp:Button ID="btnSave" Text="Lưu" CssClass="btn btn-success" runat="server" /> 
                             </div>
                         </div> 
@@ -149,7 +125,7 @@
                         </button>
                     </div>
                     <div class="modal-body"> 
-                         <% foreach (var parent in getHinhAnh) { %>
+                         <%--<% foreach (var parent in getHinhAnh) { %>
                             <div class="row">
                                 <% foreach (var child in parent) { %> 
                                     <div class="col-3 mb-2">  
@@ -161,7 +137,7 @@
                                     </div> 
                                 <% } %>
                             </div> 
-                        <% } %> 
+                        <% } %> --%>
                     </div> 
                 </div> 
             </div>
@@ -207,7 +183,7 @@
             }) 
         }
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<% Response.Write(getGoogleMapAPIKey); %>&callback=initMap"></script>
+    <%--<script async defer src="https://maps.googleapis.com/maps/api/js?key=<% Response.Write(getGoogleMapAPIKey); %>&callback=initMap"></script>--%>
     <script> 
         // Upload hinh anh: https://stackoverflow.com/questions/46765197/how-to-enable-image-upload-support-in-ckeditor-5
         $(document).ready(function () {
@@ -216,8 +192,8 @@
             const DEBOUND_AJAX_TIMER = 500;
             var editors = [];
 
-            createEditor('txtMoTa', 'test')
-            createEditor('txtMoTaTiengAnh', 'test')
+            createEditor('txtMoTa', '<% Response.Write(txtMoTa.Text); %>')
+            createEditor('txtMoTaTiengAnh', '<% Response.Write(txtMoTaTiengAnh.Text); %>')
             images.forEach(image => image.addEventListener("click", handleSetImageThumbnail)); 
             $(`#${PREFIX}_btnGet`).click(translateDiaDiem)
             $(`#${PREFIX}_txtIFrame`).keyup(window.deboundAjax(handleGetGeoGraphicIframe, DEBOUND_AJAX_TIMER))

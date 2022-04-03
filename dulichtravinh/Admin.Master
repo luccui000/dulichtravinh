@@ -69,7 +69,7 @@
                                     <a href="/Admin/DanhMuc/Index.aspx" class="nav-link">Danh mục</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">Thêm mới</a>
+                                    <a href="/Admin/DiaDiem/Create.aspx" class="nav-link">Thêm mới</a>
                                 </li>
                             </ul>
                         </li>

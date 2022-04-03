@@ -15,9 +15,26 @@ namespace dulichtravinh
     public partial class WebForm2 : Model
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            AddParameterToCmd addParameterToCmd = new AddParameterToCmd(addParameter);
-            this.bindingGridView(grvDiaDiem, "SP_DanhSachDiaDiemTheoNgonNgu", addParameterToCmd, true);
+        { 
+            SqlConnection connection = new SqlConnection(this.connectionString);
+            SqlCommand cmd = new SqlCommand("SP_DanhSachDiaDiemTheoNgonNgu", connection);
+            cmd.Parameters.AddWithValue("BanDich", "VietNam");
+            cmd.CommandType = CommandType.StoredProcedure; 
+            try
+            {
+                connection.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt); 
+                grvDiaDiem.DataSource = dt;
+                grvDiaDiem.DataBind();
+            } catch(Exception ex)
+            {
+
+            } finally
+            {
+                connection.Close();
+            }
         }
         public void addParameter(SqlCommand cmd)
         {
