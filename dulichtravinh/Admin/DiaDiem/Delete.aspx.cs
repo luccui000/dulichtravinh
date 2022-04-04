@@ -30,7 +30,10 @@ namespace dulichtravinh
                 conn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
+                {
                     Response.Write(string.Format("<script>Xóa thành công</script>"));
+                    Response.Redirect("/Admin/DiaDiem/Index.aspx");
+                }
                 else
                     Response.Write(string.Format("<script>Có lỗi xảy ra không thể xóa</script>"));
             } catch (Exception ex)

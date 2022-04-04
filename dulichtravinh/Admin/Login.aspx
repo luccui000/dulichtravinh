@@ -14,17 +14,7 @@
         * {
             margin: 0;
             padding: 0;
-        }
-        .container-bg {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100vh;
-            background-image: url(https://images.unsplash.com/photo-1577711456322-57dc8dc817c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);
-            object-fit: cover;
-            object-position: center;
-            background-size: auto 100%;
-        }
+        } 
         .main-form {
             background-color: rgba(255, 255, 255, 0.8);
             height: 100vh;
@@ -32,7 +22,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" >
         <div class="w-50 mx-auto mt-4">
             <div class="card">
                 <div class="card-body">
@@ -45,8 +35,7 @@
                         <label >Mật khẩu</label>
                         <asp:TextBox ID="txtMatKhau" type="password" CssClass="form-control" runat="server" />
                     </div>
-                    <asp:Button ID="btnDangNhap" CssClass="btn btn-primary" Text="Đăng nhập" runat="server" OnClick="btnDangNhap_Click"/>
-                    <a href="#" style="color: rgb(0, 0, 0)">Đăng ký tài khoản</a> 
+                    <asp:Button ID="btnDangNhap" CssClass="btn btn-primary btn-block" Text="Đăng nhập" runat="server" OnClick="btnDangNhap_Click"/> 
                 </div>
             </div> 
         </div>
