@@ -90,6 +90,7 @@
     <Content Include="Admin\DanhMuc\Index.aspx" />
     <Content Include="Admin\DiaDiem\Update.aspx" />
     <Content Include="Admin\DiaDiem\Delete.aspx" />
+    <Content Include="Admin\Index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -163,6 +164,13 @@
     </Compile>
     <Compile Include="Admin\DiaDiem\Delete.aspx.designer.cs">
       <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
