@@ -10,33 +10,42 @@
 namespace dulichtravinh {
     
     
-    public partial class WebForm2 {
+    public partial class WebForm9 {
         
         /// <summary>
-        /// txtTimKiem control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTimKiem;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnTimKiem control.
+        /// txtTenDangNhap control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTimKiem;
+        protected global::System.Web.UI.WebControls.TextBox txtTenDangNhap;
         
         /// <summary>
-        /// grvDiaDiem control.
+        /// txtMatKhau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvDiaDiem;
+        protected global::System.Web.UI.WebControls.TextBox txtMatKhau;
+        
+        /// <summary>
+        /// btnDangNhap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDangNhap;
     }
 }

@@ -13,6 +13,15 @@ namespace dulichtravinh {
     public partial class WebForm5 {
         
         /// <summary>
+        /// txtDiaDiemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtDiaDiemId;
+        
+        /// <summary>
         /// txtTenDiaDiem control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace dulichtravinh {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveAndContinue;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
         /// txtHinhAnhId control.

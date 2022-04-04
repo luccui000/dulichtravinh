@@ -93,6 +93,8 @@
     <Content Include="Admin\DiaDiem\Delete.aspx" />
     <Content Include="Admin\Index.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\Logout.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -187,6 +189,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

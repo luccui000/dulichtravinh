@@ -9,7 +9,15 @@
                     <h5 class="card-header">Danh sách địa điểm</h5>  
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-12 d-flex justify-content-end">
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <asp:TextBox ID="txtTimKiem" runat="server" CssClass="form-control" placeholder="Nhập tên địa chỉ tìm kiếm" /> 
+                                    <div class="input-group-append">
+                                        <asp:Button ID="btnTimKiem" Text="Tìm kiếm" runat="server" CssClass="input-group-text" OnClick="btnTimKiem_Click"/> 
+                                    </div>
+                                </div>  
+                            </div>
+                            <div class="col-6 d-flex justify-content-end"> 
                                 <a class="btn btn-primary" href="/Admin/DiaDiem/Create.aspx">Thêm mới</a>
                             </div>
                         </div>

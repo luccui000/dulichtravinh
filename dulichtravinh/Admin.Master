@@ -44,7 +44,7 @@
                 <div class="page-sidebar">
                     <ul class="sidebar__nav">
                         <li class="nav-item">
-                            <a href="/Admin/" class="nav-link nav-toggle sidebar__nav--link">
+                            <a href="/Admin/Index.aspx" class="nav-link nav-toggle sidebar__nav--link">
                                 <div class="sidebar__nav--left">
                                     <i class="fa fa-home"></i>
                                     <span>Trang chủ</span>

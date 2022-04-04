@@ -11,6 +11,7 @@
                         <div class="card">
                             <h5 class="card-header">Thêm mới thông tin địa điểm</h5>
                             <div class="card-body p-2">
+                                <asp:HiddenField ID="txtDiaDiemId" runat="server" />
                                 <div class="form-group">
                                     <label for="txtTenDiaDiem">Tên địa điểm</label>
                                     <asp:TextBox CssClass="form-control" placeholder="Tên địa điểm" ID="txtTenDiaDiem" name="TenDiaDiem" runat="server"></asp:TextBox> 
@@ -85,8 +86,7 @@
                             <h5 class="card-header">Hành động</h5>
                             <div class="card-body">
                                 <asp:Button ID="btnGet" CssClass="btn btn-primary btnSource" Text="Dịch bài" OnClientClick="return false;" runat="server" /> 
-                                <asp:Button type="button" ID="btnSaveAndContinue" Text="Lưu và tiếp tục" CssClass="btn btn-primary" runat="server"/>
-                                <asp:Button ID="btnSave" Text="Lưu" CssClass="btn btn-success" runat="server" /> 
+                                <asp:Button type="button" ID="btnSaveAndContinue" Text="Lưu và tiếp tục" CssClass="btn btn-primary" runat="server" OnClick="btnSaveAndContinue_Click"/> 
                             </div>
                         </div> 
                     </div>
@@ -119,7 +119,7 @@
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Chọn ảnh thumbnail</h5>
+                        <h5 class="modal-title">Chọn ảnh thumbnail</h5> 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

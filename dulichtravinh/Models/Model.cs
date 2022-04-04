@@ -36,5 +36,12 @@ namespace dulichtravinh.Models
             gridView.DataSource = dt;
             gridView.DataBind();
         } 
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            if(Session["Id"] == null)
+            {
+                Response.Redirect("/Admin/Login.aspx");
+            }
+        }
     }
 }

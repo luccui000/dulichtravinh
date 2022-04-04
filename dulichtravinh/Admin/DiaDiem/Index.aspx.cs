@@ -40,5 +40,30 @@ namespace dulichtravinh
         {
             cmd.Parameters.AddWithValue("BanDich", "VietNam");
         }
+
+        protected void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string tukhoaTimKiem = txtTimKiem.Text;
+            SqlConnection conn = new SqlConnection(this.connectionString);
+            SqlCommand cmd = new SqlCommand("SP_TimKiemDiaDiemTheoTuKhoa", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("TuKhoa", tukhoaTimKiem);
+            try
+            {
+                conn.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+                grvDiaDiem.DataSource = dt;
+                grvDiaDiem.DataBind();
+
+            } catch(Exception ex)
+            {
+
+            } finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

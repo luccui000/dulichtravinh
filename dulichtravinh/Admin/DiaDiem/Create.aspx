@@ -85,8 +85,7 @@
                             <h5 class="card-header">Hành động</h5>
                             <div class="card-body">
                                 <asp:Button ID="btnGet" CssClass="btn btn-primary btnSource" Text="Dịch bài" OnClientClick="return false;" runat="server" /> 
-                                <asp:Button type="button" ID="btnSaveAndContinue" Text="Lưu và tiếp tục" CssClass="btn btn-primary" runat="server" OnClick="btnSaveAndContinue_Click" />
-                                <asp:Button ID="btnSave" Text="Lưu" CssClass="btn btn-success" runat="server" /> 
+                                <asp:Button type="button" ID="btnSaveAndContinue" Text="Lưu và tiếp tục" CssClass="btn btn-success" runat="server" OnClick="btnSaveAndContinue_Click" /> 
                             </div>
                         </div> 
                     </div>
