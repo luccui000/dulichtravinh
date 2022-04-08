@@ -19,6 +19,14 @@
                                     <label for="txtTenDiaDiemTiengAnh">Tên địa điểm (bản tiếng anh)</label>
                                     <asp:TextBox CssClass="form-control" placeholder="Tên địa điểm (bản tiếng anh)" ID="txtTenDiaDiemTiengAnh" runat="server"></asp:TextBox> 
                                 </div>
+                                <div class="form-group">
+                                    <label>Mô tả ngắn về địa điểm</label>
+                                    <asp:TextBox ID="txtMoTaNgan" placeholder="Mô tả ngắn về địa điểm" TextMode="MultiLine" CssClass="form-control" runat="server" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả ngắn về địa điểm(bản tiếng Anh)</label>
+                                    <asp:TextBox ID="txtMoTaNganTiengAnh" placeholder="Mô tả ngắn về địa điểm (bản tiếng Anh)" TextMode="MultiLine" CssClass="form-control" runat="server" />
+                                </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group position-relative">
@@ -213,6 +221,8 @@
             function translateDiaDiem() {
                 const inputTenDiaDiem = $(`#${PREFIX}_txtTenDiaDiem`).val() || "";
                 const inputMota = $(`#${PREFIX}_txtMoTa`).val() || "";
+                const inputMoTaNgan = $(`#${PREFIX}_txtMoTaNgan`).val() || "";
+
                 const translateTenDiaDiem = $.ajax({
                     url: "/Services/DichVanBan.asmx/Dich",
                     type: "POST",
@@ -229,15 +239,27 @@
                     processData: false,
                     dataType: "json"
                 }) 
-                $.when(translateTenDiaDiem, translateMoTa).done(function (res1, res2) {
-                    if (res1[0].d !== "") { 
-                        $(`#${PREFIX}_txtTenDiaDiemTiengAnh`).val(JSON.parse(res1[0].d).Text); 
+                const traslateMoTaNgan = $.ajax({
+                    url: "/Services/DichVanBan.asmx/Dich",
+                    type: "POST",
+                    data: '{ input: "' + inputMoTaNgan + '" }',
+                    contentType: "application/json; charset=UTF-8",
+                    processData: false,
+                    dataType: "json"
+                })
+                $.when(translateTenDiaDiem, translateMoTa, traslateMoTaNgan).done(function (res1, res2, res3) {
+                    if (res1[0].d !== "") {
+                        $(`#${PREFIX}_txtTenDiaDiemTiengAnh`).val(JSON.parse(res1[0].d).Text);
                     }
                     if (res2[0].d !== "") {
                         $(`#${PREFIX}_txtMoTaTiengAnh`).text(JSON.parse(res2[0].d).Text);
                         editors['txtMoTaTiengAnh'].setData(JSON.parse(res2[0].d).Text)
                     }
+                    if (res3[0].d !== "") {
+                        $(`#${PREFIX}_txtMoTaNganTiengAnh`).text(JSON.parse(res3[0].d).Text);
+                    }
                 })
+
             } 
             function handleGetGeoGraphicIframe() {
                 const iframeVal = $(`#${PREFIX}_txtIFrame`).val();   

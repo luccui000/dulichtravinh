@@ -61,8 +61,10 @@ namespace dulichtravinh
             float KinhDo = float.Parse(txtKinhDo.Text);
             float ViDo = float.Parse(txtViDo.Text);
             string DiaChi = txtDiaChi.Text;
-            string MoTa = txtMoTa.Text;
+            string MoTa = txtMoTa.Text; 
             string MoTaTiengAnh = txtMoTaTiengAnh.Text;
+            string MoTaNgan = txtMoTaNgan.Text;
+            string MoTaNganTiengAnh = txtMoTaNganTiengAnh.Text;
             int hinhAnhId = int.Parse(txtHinhAnhId.Value);
             int DiaDiemId = int.Parse(txtDiaDiemId.Value);
 
@@ -70,7 +72,8 @@ namespace dulichtravinh
             SqlCommand cmd = new SqlCommand("SP_CapNhatDiaDiem", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@Id", DiaDiemId);
+            Response.Write("DiaChi" + txtDiaChi.Text);
+            cmd.Parameters.AddWithValue("@DiaDiemId", DiaDiemId);
             cmd.Parameters.AddWithValue("@HinhAnhId", hinhAnhId);
             cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
             cmd.Parameters.AddWithValue("@Iframe", Iframe);
@@ -80,16 +83,19 @@ namespace dulichtravinh
             cmd.Parameters.AddWithValue("@TenDiaDiem", TenDiaDiem);
             cmd.Parameters.AddWithValue("@TenDiaDiemTiengAnh", TenDiaDiem);
             cmd.Parameters.AddWithValue("@MoTa", MoTa);
-            cmd.Parameters.AddWithValue("@MoTaTiengAnh", MoTaTiengAnh);
-
+            cmd.Parameters.AddWithValue("@MoTaTiengAnh", MoTaTiengAnh); 
+            cmd.Parameters.AddWithValue("@MoTaNgan", MoTaNgan);
+            cmd.Parameters.AddWithValue("@MoTaNganTiengAnh", MoTaNganTiengAnh);
+             
             try
             {
                 conn.Open();
                 int i = cmd.ExecuteNonQuery();
+                
                 if (i > 0)
                 {
                     Response.Write("<script>Sửa thành công thành công</script>");
-                    Response.Redirect("/Admin/DiaDiem/Index.aspx");
+                    // Response.Redirect("/Admin/DiaDiem/Index.aspx");
                 }
                 else
                 {
@@ -98,7 +104,7 @@ namespace dulichtravinh
             }
             catch (Exception ex)
             {
-
+                Response.Write("ERROR" + ex.Message);
             }
             finally
             {

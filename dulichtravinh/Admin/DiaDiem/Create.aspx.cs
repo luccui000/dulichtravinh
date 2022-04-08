@@ -31,7 +31,9 @@ namespace dulichtravinh
         protected void btnSaveAndContinue_Click(object sender, EventArgs e)
         {
             string TenDiaDiem = txtTenDiaDiem.Text;
-            string tenDiaDiemTiengAnh = txtTenDiaDiemTiengAnh.Text; 
+            string tenDiaDiemTiengAnh = txtTenDiaDiemTiengAnh.Text;
+            string MoTaNgan = txtMoTaNgan.Text;
+            string MoTaNganTiengAnh = txtMoTaNganTiengAnh.Text;
             string Iframe = txtIFrame.Text;
             float KinhDo = float.Parse(txtKinhDo.Text);
             float ViDo = float.Parse(txtViDo.Text);
@@ -53,7 +55,9 @@ namespace dulichtravinh
             cmd.Parameters.AddWithValue("@TenDiaDiem", TenDiaDiem);
             cmd.Parameters.AddWithValue("@TenDiaDiemTiengAnh", TenDiaDiem); 
             cmd.Parameters.AddWithValue("@MoTa", MoTa); 
-            cmd.Parameters.AddWithValue("@MoTaTiengAnh", MoTaTiengAnh); 
+            cmd.Parameters.AddWithValue("@MoTaTiengAnh", MoTaTiengAnh);
+            cmd.Parameters.AddWithValue("@MoTaNgan", MoTaNgan);
+            cmd.Parameters.AddWithValue("@MoTaNganTiengAnh", MoTaNganTiengAnh);
 
             try
             {
