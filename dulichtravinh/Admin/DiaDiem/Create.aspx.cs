@@ -11,9 +11,23 @@ using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Web.Script.Serialization;
 
 namespace dulichtravinh
-{
+{ 
+    public class TagSelect
+    {
+        public int id
+        {
+            get;
+            set;
+        }
+        public string name
+        {
+            get;
+            set;
+        }
+    }
     public partial class WebForm3 : Model
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -26,25 +40,43 @@ namespace dulichtravinh
             {
                 return (new HinhAnhService()).getHinhAnh();
             }
+        } 
+        protected string getTags
+        {
+            get {
+                List<Tag> tags = (new TagService()).getTags();
+                List <TagSelect> tagSelects = new List<TagSelect>();
+                string tagStr = string.Empty;
+                foreach (var tag in tags)
+                {
+                    tagSelects.Add(new TagSelect()
+                    {
+                        id = tag.Id,
+                        name = tag.TenTag
+                    });
+                }
+                JavaScriptSerializer js = new JavaScriptSerializer(); 
+                return js.Serialize(tagSelects);
+            }
         }
 
         protected void btnSaveAndContinue_Click(object sender, EventArgs e)
         {
-            string TenDiaDiem = txtTenDiaDiem.Text;
-            string tenDiaDiemTiengAnh = txtTenDiaDiemTiengAnh.Text;
-            string MoTaNgan = txtMoTaNgan.Text;
-            string MoTaNganTiengAnh = txtMoTaNganTiengAnh.Text;
-            string Iframe = txtIFrame.Text;
-            float KinhDo = float.Parse(txtKinhDo.Text);
-            float ViDo = float.Parse(txtViDo.Text);
-            string DiaChi = txtDiaChi.Text;
-            string MoTa = txtMoTa.Text;
-            string MoTaTiengAnh = txtMoTaTiengAnh.Text;
-            int hinhAnhId = int.Parse(txtHinhAnhId.Value);
+            string TenDiaDiem = txtTenDiaDiem.Text.Trim();
+            string tenDiaDiemTiengAnh = txtTenDiaDiemTiengAnh.Text.Trim();
+            string MoTaNgan = txtMoTaNgan.Text.Trim();
+            string MoTaNganTiengAnh = txtMoTaNganTiengAnh.Text.Trim();
+            string Iframe = txtIFrame.Text.Trim();
+            float KinhDo = string.IsNullOrEmpty(txtKinhDo.Text.Trim()) ? 0 : float.Parse(txtKinhDo.Text.Trim());
+            float ViDo = string.IsNullOrEmpty(txtViDo.Text.Trim()) ? 0 : float.Parse(txtViDo.Text.Trim());
+            string DiaChi = txtDiaChi.Text.Trim();
+            string MoTa = txtMoTa.Text.Trim();
+            string MoTaTiengAnh = txtMoTaTiengAnh.Text.Trim();
+            int hinhAnhId = string.IsNullOrEmpty(txtHinhAnhId.Value.Trim()) ? 1 : int.Parse(txtHinhAnhId.Value.Trim());
 
             SqlConnection conn = new SqlConnection(this.connectionString);
             SqlCommand cmd = new SqlCommand("SP_ThemMoiDiaDiem", conn);
-            cmd.CommandType = CommandType.StoredProcedure; 
+            cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@HinhAnhId", hinhAnhId);
             cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
@@ -53,11 +85,12 @@ namespace dulichtravinh
             cmd.Parameters.AddWithValue("@ViDo", ViDo);
             cmd.Parameters.AddWithValue("@NguoiTao", 1);
             cmd.Parameters.AddWithValue("@TenDiaDiem", TenDiaDiem);
-            cmd.Parameters.AddWithValue("@TenDiaDiemTiengAnh", TenDiaDiem); 
-            cmd.Parameters.AddWithValue("@MoTa", MoTa); 
+            cmd.Parameters.AddWithValue("@TenDiaDiemTiengAnh", TenDiaDiem);
+            cmd.Parameters.AddWithValue("@MoTa", MoTa);
             cmd.Parameters.AddWithValue("@MoTaTiengAnh", MoTaTiengAnh);
             cmd.Parameters.AddWithValue("@MoTaNgan", MoTaNgan);
             cmd.Parameters.AddWithValue("@MoTaNganTiengAnh", MoTaNganTiengAnh);
+            cmd.Parameters.Add("@Id", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             try
             {
@@ -66,6 +99,19 @@ namespace dulichtravinh
                 if (i > 0)
                 {
                     Response.Write("<script>Thêm mới thành công</script>");
+                    int Id = int.Parse(cmd.Parameters["@Id"].Value.ToString());
+
+                    string Tags = txtTagField.Value;
+                    string[] tagIds = Tags.Split(',');
+                    foreach (var tagId in tagIds)
+                    {
+                        SqlCommand cmd2 = new SqlCommand("SP_ThemMoiDiaDiemTag", conn);
+                        cmd2.CommandType = CommandType.StoredProcedure;
+
+                        cmd2.Parameters.AddWithValue("@DiaDiemId", Id);
+                        cmd2.Parameters.AddWithValue("@TagId", tagId);
+                        cmd2.ExecuteNonQuery();
+                    }
                 }
                 else
                 {
@@ -74,7 +120,7 @@ namespace dulichtravinh
             }
             catch (Exception ex)
             {
-
+                Response.Write("ERRR" + ex.Message);
             }
             finally
             {

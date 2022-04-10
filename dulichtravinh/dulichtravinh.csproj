@@ -81,6 +81,7 @@
     <Content Include="Resources\css\home.css" />
     <Content Include="Resources\css\root.css" />
     <Content Include="Resources\js\geographic.js" />
+    <Content Include="Resources\js\googlemaps.js" />
     <Content Include="Resources\js\translate.js" />
     <Content Include="Services\DiaDiem.asmx" />
     <Content Include="Services\DichVanBan.asmx" />
@@ -112,7 +113,6 @@
     <Compile Include="App.Master.designer.cs">
       <DependentUpon>App.Master</DependentUpon>
     </Compile>
-    <Compile Include="Contracts\IDiaDiem.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -120,17 +120,17 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Extends\BaseService.cs" />
     <Compile Include="Helpers\Constant.cs" />
     <Compile Include="Helpers\Hash.cs" />
     <Compile Include="Helpers\ImageUploader.cs" />
     <Compile Include="Helpers\Translator.cs" />
     <Compile Include="Models\DanhMuc.cs" />
-    <Compile Include="Models\DiaDiem.cs" />
     <Compile Include="Models\HinhAnhModel.cs" />
     <Compile Include="Models\Model.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ObjectValues\DiaDiemValueObject.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Admin\HinhAnh.aspx.cs">
       <DependentUpon>HinhAnh.aspx</DependentUpon>
@@ -159,7 +159,6 @@
     </Compile>
     <Compile Include="Admin\DiaDiem\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\DiaDiem\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
@@ -215,6 +214,7 @@
     <Compile Include="Admin\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\TagService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.Master" />
@@ -229,6 +229,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="ObjectValues\" />
     <Folder Include="Resources\img\" />
     <Folder Include="Upload\images\" />
   </ItemGroup>

@@ -42,7 +42,7 @@ namespace dulichtravinh
                     txtMoTa.Text = dt.Rows[0][3].ToString();
                     txtMoTaTiengAnh.Text = dt.Rows[1][3].ToString();
                     txtHinhAnhId.Value = dt.Rows[1][10].ToString();
-                    txtDiaChi.Text = dt.Rows[0][4].ToString();
+                    txtDiaChiText.Text = dt.Rows[0][4].ToString();
                 }
             } catch(Exception ex)
             {
@@ -60,19 +60,18 @@ namespace dulichtravinh
             string Iframe = txtIFrame.Text;
             float KinhDo = float.Parse(txtKinhDo.Text);
             float ViDo = float.Parse(txtViDo.Text);
-            string DiaChi = txtDiaChi.Text;
+            string DiaChi = txtDiaChiText.Text;
             string MoTa = txtMoTa.Text; 
             string MoTaTiengAnh = txtMoTaTiengAnh.Text;
             string MoTaNgan = txtMoTaNgan.Text;
             string MoTaNganTiengAnh = txtMoTaNganTiengAnh.Text;
             int hinhAnhId = int.Parse(txtHinhAnhId.Value);
             int DiaDiemId = int.Parse(txtDiaDiemId.Value);
-
+             
             SqlConnection conn = new SqlConnection(this.connectionString);
             SqlCommand cmd = new SqlCommand("SP_CapNhatDiaDiem", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            Response.Write("DiaChi" + txtDiaChi.Text);
             cmd.Parameters.AddWithValue("@DiaDiemId", DiaDiemId);
             cmd.Parameters.AddWithValue("@HinhAnhId", hinhAnhId);
             cmd.Parameters.AddWithValue("@DiaChi", DiaChi);

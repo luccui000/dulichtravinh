@@ -57,7 +57,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <asp:Label Text="Địa chỉ" runat="server" />
-                                            <asp:TextBox placeholder="Địa chỉ" CssClass="form-control" ID="txtDiaChi" runat="server" />
+                                            <asp:TextBox CssClass="form-control" placeholder="Địa chỉ" ID="txtDiaChiText" runat="server"></asp:TextBox> 
                                         </div>
                                     </div>
                                 </div>
