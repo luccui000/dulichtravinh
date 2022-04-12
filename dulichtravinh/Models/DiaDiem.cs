@@ -40,6 +40,11 @@ namespace dulichtravinh.Models
             get;
             set;
         }
+        public string DiaChi
+        {
+            get;
+            set;
+        }
         public string MoTa
         {
             get;
@@ -56,6 +61,16 @@ namespace dulichtravinh.Models
             set;
         }
         public string DuongDan
+        {
+            get;
+            set;
+        }
+        public string NgayTao
+        {
+            get;
+            set;
+        }
+        public string NguoiTao
         {
             get;
             set;
@@ -91,6 +106,29 @@ namespace dulichtravinh.Models
             }
             return diadiems;
         }
-
+        public DiaDiem layDiaDiem(int Id, string BanDich)
+        { 
+            SqlCommand cmd = new SqlCommand("SP_TimDiaDiemTheoIdVaNgonNgu", this.conn);
+            cmd.Parameters.AddWithValue("@Id", Id);
+            cmd.Parameters.AddWithValue("@BanDich", BanDich);
+            try
+            {
+                this.conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                this.Id = reader.GetInt32(0);
+                this.DuongDan = reader.GetString(1);
+                this.TenDiaDiem = reader.GetString(2);
+                this.MoTa = reader.GetString(3);
+                this.DiaChi = reader.GetString(4);
+                this.Iframe = reader.GetString(5);
+                this.KinhDo = reader.GetFloat(6);
+                this.ViDo = reader.GetFloat(7);
+                this.NgayTao = reader.GetDateTime(8).ToLongTimeString();
+                this.NguoiTao = reader.GetString(10); 
+            } catch (Exception ex) { 
+            }
+            finally { this.conn.Close(); }
+            return this;
+        }
     }
 }
