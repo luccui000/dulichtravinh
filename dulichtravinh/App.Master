@@ -21,7 +21,7 @@
     <form id="form1" runat="server">
         <nav class = "navbar">
             <div class = "container flex">
-                <a href = "index.html" class = "site-brand">
+                <a href = "/" class = "site-brand">
                     Vi vu <span>Trà Vinh</span>
                 </a>
 
