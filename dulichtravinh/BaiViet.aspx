@@ -48,19 +48,22 @@
         </div>
     </header>
     <div class="post-container"> 
+
         <p><asp:Label ID="lblMoTa" Text="" runat="server" /></p>  
         <div class="comment mt-3">
             <div class="form-group">
                 <label>Nội dung</label>
+                <asp:HiddenField ID="txtDiaDiemId" Value="<% Response.Write(!String.IsNullOrEmpty(Request.QueryString["Id"]) ? Request.QueryString["Id"] : ""); %>" runat="server" />
                 <asp:TextBox id="txtComment" runat="server" TextMode="MultiLine" />
-            </div>
-            <% if (Session["login_with_google"] == null) {%>  
+            </div> 
+            <% if (Session["access_token"] == null) {%>  
                 <asp:LinkButton ID="loginWithGoogle" runat="server" CssClass="btn btn-danger btn-sm" Width="240px" OnClick="loginWithGoogle_click">
                     <i class="fab fa-google"></i> 
                     <span style="margin-left: 10px">Đăng nhập bằng Google</span> 
                 </asp:LinkButton> 
+                
             <% } else { %>
-                <asp:Button CssClass="btn btn-primary btn-sm" Text="Gửi" runat="server" />
+                <asp:Button ID="btnComment" CssClass="btn btn-primary btn-sm" Text="Gửi" runat="server" />
             <% } %>
         </div>
     </div>

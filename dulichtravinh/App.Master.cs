@@ -24,6 +24,8 @@ namespace dulichtravinh
                     Session["lang"] = "VietNam";
                 }
             }
+            if (Request.Cookies["access_token"].Value != null)
+                Session["access_token"] = Request.Cookies["access_token"].Value;
         }
     }
 }

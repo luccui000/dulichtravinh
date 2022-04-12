@@ -191,6 +191,7 @@
       <DependentUpon>HinhAnh.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\BaiVietService.cs" />
+    <Compile Include="Services\CommentService.cs" />
     <Compile Include="Services\DanhMucService.cs" />
     <Compile Include="Services\DiaDiem.asmx.cs">
       <DependentUpon>DiaDiem.asmx</DependentUpon>

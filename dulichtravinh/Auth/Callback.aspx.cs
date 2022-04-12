@@ -21,41 +21,36 @@ namespace dulichtravinh.Auth
             {
                 if(Request.QueryString["code"] != null)
                 {
-                    var token = GoogleService.getToken(Request.QueryString["code"].ToString());
+                    var token = string.Empty;
+                    if(Response.Cookies["access_token"].Value == null) 
+                        token = GoogleService.getToken(Request.QueryString["code"].ToString());
+                    Response.Cookies["access_token"].Value = token.ToString();
+                    Response.Cookies["access_token"].Expires = DateTime.Now.AddDays(30);
                     KhachHang khachhang = new KhachHang();
-                    khachhang.layThongTin(token);
-                    Response.Write(khachhang.toString());
-                    SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
-                    SqlCommand cmd = new SqlCommand("SP_ThemMoiKhachHang", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@TenHienThi", khachhang.TenHienThi);
-                    cmd.Parameters.AddWithValue("@Email", khachhang.Email);
-                    cmd.Parameters.AddWithValue("@HinhDaiDien", khachhang.HinhDaiHien);
-                    cmd.Parameters.AddWithValue("@GoogleId", khachhang.GoogleId);
-                    cmd.Parameters.AddWithValue("@TenGoogle", khachhang.TenGoogle);
-                    cmd.Parameters.AddWithValue("@NgonNgu", khachhang.NgonNgu);
-                    try
+                    khachhang.dangNhapVoiGoogle(token); 
+                    if (!String.IsNullOrEmpty(khachhang.GoogleId) && !khachhang.daTonTai(khachhang.GoogleId))
                     {
-                        conn.Open();
-                        int i = cmd.ExecuteNonQuery();
-                        if(i > 0)
-                        { 
+                        if (khachhang.dangNhap())
+                        {
                             Session["login_with_google"] = true;
-                            if(Session["previous_url"] != null)
-                            {
-                                Response.Redirect(Session["previous_url"].ToString());
-                            } else
-                            {
-                                Response.Redirect("/");
-                            }
+                            Session["TenHienThi"] = khachhang.TenGoogle;
+                            Session["GoogleId"] = khachhang.GoogleId;
+                            Session["access_token"] = token;
+                            Response.Redirect(Session["previous_url"].ToString());
                         }
-                    } catch(Exception ex)
+                    } else if (!String.IsNullOrEmpty(khachhang.GoogleId)) {
+                        Session["login_with_google"] = true;
+                        Session["TenHienThi"] = khachhang.TenGoogle;
+                        Session["GoogleId"] = khachhang.GoogleId;
+                        Session["access_token"] = token;
+                        Response.Redirect(Session["previous_url"].ToString());
+                    } else if (String.IsNullOrEmpty(khachhang.GoogleId))
                     {
-                        Response.Write(ex.Message);
-                    } finally
-                    {
-                        conn.Close();
+                        Response.Write("<script>alert('Không thể xác nhận danh tính')</script>");
                     }
+                } else
+                {
+                    Response.Redirect("/");
                 }
             }
         }

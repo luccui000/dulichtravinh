@@ -65,5 +65,10 @@ namespace dulichtravinh
             Session["previous_url"] = Request.Url;
             Response.Redirect(url);
         }
+
+        protected void btnComment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
