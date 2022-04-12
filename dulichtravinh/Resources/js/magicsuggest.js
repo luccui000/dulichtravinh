@@ -237,7 +237,7 @@
             /**
              * The default placeholder text when nothing has been entered
              */
-            placeholder: 'Type or click here',
+            placeholder: 'Chọn tag cho bài viết',
 
             /**
              * A function used to define how the items will be presented in the combo
