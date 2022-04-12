@@ -1,142 +1,144 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="dulichtravinh.WebForm8" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
-    <header class = "flex">
-            <div class = "container">
-                <div class = "header-title">
-                    <h1>Leave Your Footprints</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
-                </div> 
-            </div>
-        </header> 
-        <section id = "featured" class = "py-4">
-            <div class = "container">
-                <div class = "title-wrap">
-                    <span class = "sm-title">Những địa điểm bạn nên biết trước khi ghé thăm</span>
-                    <h2 class = "lg-title">Top những địa điểm nổi bật</h2>
-                </div>
-                <div class = "featured-row">
-                    <% foreach (var diadiem in getTopDiaDiemNoiBat) {%> 
-                        <div class = "featured-item my-2 shadow">
-                            <img src = "<% Response.Write(diadiem.DuongDan); %>" alt = "featured place">
-                            <div class = "featured-item-content">
-                                <a href="/BaiViet.aspx?Id=<% Response.Write(diadiem.Id); %>">
-                                    <span class="featured-item-title">
-                                        <i class = "fas fa-map-marker-alt"></i>
-                                         <% Response.Write(diadiem.TenDiaDiem); %>
-                                    </span>
-                                    <div>
-                                        <p class = "text"><% Response.Write(diadiem.MoTaNgan); %></p>
-                                    </div> 
-                                </a>
-                            </div>
-                        </div>
-                    <% } %> 
-                </div>
-            </div>
-        </section> 
-        <section id = "services" class = "py-4">
-            <div class = "container">
-                <div class = "title-wrap">
-                    <span class = "sm-title">know about services that we offer</span>
-                    <h2 class = "lg-title">Our services</h2>
-                </div>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="dulichtravinh.Default2" %>
 
-                <div class = "services-row">
-                    <div class = "services-item">
-                        <span class = "services-icon">
-                            <i class = "fas fa-hotel"></i>
-                        </span>
-                        <h3>Luxurious Hotel</h3>
-                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
-                        <a href = "#" class = "btn">Read more</a>
-                    </div>
-
-                    <div class = "services-item">
-                        <span class = "services-icon">
-                            <i class = "fas fa-map-marked-alt"></i>
-                        </span>
-                        <h3>Trave Guide</h3>
-                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
-                        <a href = "#" class = "btn">Read more</a>
-                    </div>
-
-                    <div class = "services-item">
-                        <span class = "services-icon">
-                            <i class = "fas fa-money-bill"></i>
-                        </span>
-                        <h3>Suitable Price</h3>
-                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
-                        <a href = "#" class = "btn">Read more</a>
-                    </div>
-                </div>
-            </div>
-        </section> 
-        <section id = "testimonials" class = "py-4">
-            <div class = "container">
-                <div class = "title-wrap">
-                    <span class = "sm-title">what our clients say about us</span>
-                    <h2 class = "lg-title">testimonials</h2>
-                </div>
-
-                <div class = "test-row">
-                    <div class = "test-item">
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda blanditiis, asperiores, velit iste eos officiis tempora magni quaerat quo consectetur expedita cum recusandae facere nam voluptate minus iusto eum. Delectus!</p>
-                        <div class = "test-item-info">
-                            <img src = "/Resources/images/test-1.jpg" alt = "testimonial">
-                            <div>
-                                <h3>Kevin Wilson</h3>
-                                <p class = "text">Trip to Brazil</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class = "test-item">
-                        <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed ut dolores tenetur harum deserunt. Maxime tenetur consectetur recusandae nobis fugit iusto natus quibusdam nulla!</p>
-                        <div class = "test-item-info">
-                            <img src = "/Resources/images/test-2.jpg" alt = "testimonial">
-                            <div>
-                                <h3>Ben Davis</h3>
-                                <p class = "text">Trip to Maldives</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class = "test-item">
-                        <p class = "text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem sapiente amet expedita quae autem deleniti quo magni numquam facilis soluta dicta, praesentium ipsum, quos optio sed quibusdam! Reprehenderit recusandae provident id nemo!</p>
-                        <div class = "test-item-info">
-                            <img src = "/Resources/images/test-3.jpg" alt = "testimonial">
-                            <div>
-                                <h3>Jaura Jones</h3>
-                                <p class = "text">Trip to Thailand</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> 
-        <section id = "video">
-            <div class = "video-wrapper flex">
-                <video loop>
-                    <source src = "/Resources/videos/video-section.mp4" type = "video/mp4">
-                </video>
-                <button type = "button" id = "play-btn">
-                    <i class = "fas fa-play"></i>
-                </button>
-            </div>
-        </section>  
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
-     <script>
-        // play/pause video
-        let video = document.querySelector('.video-wrapper video');
-        document.getElementById('play-btn').addEventListener('click', () => {
-            if(video.paused){
-                video.play();
-            } else {
-                video.pause();
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="shortcut icon" href="./Resources/img/favicon.png" type="image/png">  
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <title>Du lịch Trà Vinh</title>
+        <style>
+            html {
+               scroll-behavior: smooth;
             }
-        });
-    </script>
-</asp:Content>
+            .travinh-carousel {
+                position: relative;
+            }
+            .travinh__carousel--img {
+                height: 100vh;
+                object-fit: cover;
+                object-position: center;
+            }
+            .travinh__header {
+                position: absolute;
+                top: 0;
+                z-index: 999;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .travinh__menu {
+                list-style: none;
+            }
+            .travinh__menu--item {
+                display: inline-block;
+            }
+            .travinh__menu--link {
+                display: block;
+                margin: 0 20px;
+                color: #000;
+                font-size: 20px;
+            }
+            .is-menu {
+                border-bottom: 2px solid #fff;
+
+            }
+            
+            .travinh__menu--link img {
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <form runat="server" id="form">  
+            <div class="carousel slide" data-ride="carousel" id="travinh-carousel">
+                <header class="travinh__header">
+                    <ul class="travinh__menu">
+                        <li class="travinh__menu--item">
+                            <a class="travinh__menu--link is-menu" href="#">Trang Chu</a>
+                        </li>
+                        <li class="travinh__menu--item">
+                            <a class="travinh__menu--link is-menu"" href="#">Bài viết</a>
+                        </li>
+                        <li class="travinh__menu--item">
+                            <a class="travinh__menu--link" href="#">
+                                <img src="https://picsum.photos/100/100" alt="Alternate Text" />
+                            </a>
+                        </li>
+                        <li class="travinh__menu--item">
+                            <a class="travinh__menu--link is-menu"" href="#">Dịch vụ</a>
+                        </li>
+                        <li class="travinh__menu--item">
+                            <a class="travinh__menu--link is-menu"" href="#">Liên hệ</a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/1920/1080" class="d-block w-100 travinh__carousel--img" alt="...">
+                    </div>
+                    <div class="carousel-item active" style="height: 100vh; background-color: #fff;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+                            <div class="row" style="">
+                                <div class="col-6">
+                                    <h3>Hello word</h3>
+                                    <p>Lorem ipsum</p>
+                                </div>
+                                <div class="col-6">
+                                    <img src="./Resources/img/homestay.jpg" alt="Alternate Text" />
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/1920/1080" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev" style="z-index: 1000">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next" style="z-index: 1000">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </button>  
+            </div>
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">Hello </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                Card 2
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                Card 3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-6 d-flex align-items-center text-lg">
+                        <p>
+                            Carousels support swiping left/right on touchscreen devices to move between slides. This can be disabled using the data-touch attribute. The example below also does not include the data-ride attribute and has data-interval="false" so it doesn’t autoplay.
+                        </p>
+                    </div>
+                    <div class="col-6"> 
+                        <img class="w-100" src="https://picsum.photos/400/300" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+        </form>  
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
 
 namespace dulichtravinh.Models
 {
-    public class HinhAnhModel: BaseModel
+    public class HinhAnhModel
     {
         public int Id
         {
@@ -39,23 +36,6 @@ namespace dulichtravinh.Models
         {
             get;
             set;    
-        }
-        public List<HinhAnhModel> getAllHinhAnh()
-        {
-            var hinhanhs = new List<HinhAnhModel>();
-            SqlCommand cmd = new SqlCommand("SP_Th", this.conn);
-            try
-            {
-                this.conn.Open();
-                
-            } catch(Exception ex)
-            {
-
-            } finally
-            {
-                this.conn.Close();
-            }
-            return hinhanhs;
         }
     }
 }

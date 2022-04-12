@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace dulichtravinh
 {
-    public partial class App : System.Web.UI.MasterPage
+    public partial class WebForm8 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -75,58 +75,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.aspx" />
     <Content Include="Resources\css\app.css" />
     <Content Include="Resources\css\ckeditor.css" />
     <Content Include="Resources\css\home.css" />
-    <Content Include="Resources\css\normalize.css" />
-    <Content Include="Resources\css\responsive.css" />
     <Content Include="Resources\css\root.css" />
-    <Content Include="Resources\css\style.css" />
-    <Content Include="Resources\css\utility.css" />
-    <Content Include="Resources\font\fonts.css" />
-    <Content Include="Resources\images\about-img.jpg" />
-    <Content Include="Resources\images\blog-1.jpg" />
-    <Content Include="Resources\images\blog-2.jpg" />
-    <Content Include="Resources\images\blog-3.jpg" />
-    <Content Include="Resources\images\blog-4.jpg" />
-    <Content Include="Resources\images\blog-5.jpg" />
-    <Content Include="Resources\images\blog-6.jpg" />
-    <Content Include="Resources\images\blog-7.jpg" />
-    <Content Include="Resources\images\blog-8.jpg" />
-    <Content Include="Resources\images\facts-img.jpg" />
-    <Content Include="Resources\images\featured-berlin-germany.jpg" />
-    <Content Include="Resources\images\featured-fuvahmulah-maldives.jpg" />
-    <Content Include="Resources\images\featured-khwaeng-wat-arun-thailand.jpg" />
-    <Content Include="Resources\images\featured-north-bondi-australia.jpg" />
-    <Content Include="Resources\images\featured-reo-de-janeiro-brazil.jpg" />
-    <Content Include="Resources\images\featured-rome-italy.jpg" />
-    <Content Include="Resources\images\gallery-1.jpg" />
-    <Content Include="Resources\images\gallery-2.jpg" />
-    <Content Include="Resources\images\gallery-3.jpg" />
-    <Content Include="Resources\images\gallery-4.jpg" />
-    <Content Include="Resources\images\gallery-5.jpg" />
-    <Content Include="Resources\images\gallery-6.jpg" />
-    <Content Include="Resources\images\gallery-7.jpg" />
-    <Content Include="Resources\images\gallery-8.jpg" />
-    <Content Include="Resources\images\gallery-9.jpg" />
-    <Content Include="Resources\images\header-bg.jpg" />
-    <Content Include="Resources\images\popular-1.jpg" />
-    <Content Include="Resources\images\popular-2.jpg" />
-    <Content Include="Resources\images\popular-3.jpg" />
-    <Content Include="Resources\images\popular-4.jpg" />
-    <Content Include="Resources\images\popular-5.jpg" />
-    <Content Include="Resources\images\popular-6.jpg" />
-    <Content Include="Resources\images\popular-7.jpg" />
-    <Content Include="Resources\images\popular-8.jpg" />
-    <Content Include="Resources\images\services-bg.jpg" />
-    <Content Include="Resources\images\test-1.jpg" />
-    <Content Include="Resources\images\test-2.jpg" />
-    <Content Include="Resources\images\test-3.jpg" />
     <Content Include="Resources\js\geographic.js" />
     <Content Include="Resources\js\googlemaps.js" />
-    <Content Include="Resources\js\script.js" />
     <Content Include="Resources\js\translate.js" />
-    <Content Include="Resources\videos\video-section.mp4" />
     <Content Include="Services\DiaDiem.asmx" />
     <Content Include="Services\DichVanBan.asmx" />
     <Content Include="Services\HinhAnh.asmx" />
@@ -138,11 +94,9 @@
     <Content Include="Admin\DiaDiem\Update.aspx" />
     <Content Include="Admin\DiaDiem\Delete.aspx" />
     <Content Include="Admin\Index.aspx" />
+    <Content Include="Default3.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\Logout.aspx" />
-    <Content Include="Default.aspx" />
-    <Content Include="ThuVien.aspx" />
-    <Content Include="BaiViet.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -159,14 +113,19 @@
     <Compile Include="App.Master.designer.cs">
       <DependentUpon>App.Master</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Extends\BaseService.cs" />
     <Compile Include="Helpers\Constant.cs" />
     <Compile Include="Helpers\Hash.cs" />
     <Compile Include="Helpers\ImageUploader.cs" />
     <Compile Include="Helpers\Translator.cs" />
-    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DanhMuc.cs" />
-    <Compile Include="Models\DiaDiem.cs" />
     <Compile Include="Models\HinhAnhModel.cs" />
     <Compile Include="Models\Model.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -180,7 +139,6 @@
     <Compile Include="Admin\HinhAnh.aspx.designer.cs">
       <DependentUpon>HinhAnh.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Services\BaiVietService.cs" />
     <Compile Include="Services\DanhMucService.cs" />
     <Compile Include="Services\DiaDiem.asmx.cs">
       <DependentUpon>DiaDiem.asmx</DependentUpon>
@@ -235,6 +193,13 @@
     <Compile Include="Admin\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default3.aspx.cs">
+      <DependentUpon>Default3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default3.aspx.designer.cs">
+      <DependentUpon>Default3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,27 +215,6 @@
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\TagService.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ThuVien.aspx.cs">
-      <DependentUpon>ThuVien.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ThuVien.aspx.designer.cs">
-      <DependentUpon>ThuVien.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BaiViet.aspx.cs">
-      <DependentUpon>BaiViet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BaiViet.aspx.designer.cs">
-      <DependentUpon>BaiViet.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.Master" />
@@ -287,6 +231,7 @@
   <ItemGroup>
     <Folder Include="Contracts\" />
     <Folder Include="ObjectValues\" />
+    <Folder Include="Resources\img\" />
     <Folder Include="Upload\images\" />
   </ItemGroup>
   <PropertyGroup>
@@ -304,7 +249,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49586</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49588/</IISUrl>
+          <IISUrl>http://localhost:49586/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
