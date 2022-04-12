@@ -1,16 +1,36 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/App.Master" AutoEventWireup="true" CodeBehind="BaiViet.aspx.cs" Inherits="dulichtravinh.WebForm12" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style> 
-        #post {
-            display: flex;
-        } 
-        .form-group {
-            margin-bottom: 10px;
-        }
-        #content_txtComment { 
+    <style>  
+        .post-container {
             width: 100%;
             max-width: 1320px;
+            min-height: 100%;
+            margin: 0 auto;
+            padding: 10px 20px;
         }
+        .form-group {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column; 
+        }
+        .form-group label {
+            margin-bottom: 10px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            max-width: 1320px;
+            border: 2px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            transition: border-color .2s linear;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+
+        } 
 
     </style>
 </asp:Content>
@@ -27,15 +47,21 @@
             </div>
         </div>
     </header>
-    <div id="post"> 
-        <p><asp:Label ID="lblMoTa" Text="" runat="server" /></p> 
-        <div class="container"> 
-            <div class="comment mt-3">
-                <div class="form-group">
-                    <label>Nội dung</label>
-                    <asp:TextBox id="txtComment" runat="server" TextMode="MultiLine" />
-                </div>
+    <div class="post-container"> 
+        <p><asp:Label ID="lblMoTa" Text="" runat="server" /></p>  
+        <div class="comment mt-3">
+            <div class="form-group">
+                <label>Nội dung</label>
+                <asp:TextBox id="txtComment" runat="server" TextMode="MultiLine" />
             </div>
+            <% if (Session["login_with_google"] == null) {%>  
+                <asp:LinkButton ID="loginWithGoogle" runat="server" CssClass="btn btn-danger btn-sm" Width="240px" OnClick="loginWithGoogle_click">
+                    <i class="fab fa-google"></i> 
+                    <span style="margin-left: 10px">Đăng nhập bằng Google</span> 
+                </asp:LinkButton> 
+            <% } else { %>
+                <asp:Button CssClass="btn btn-primary btn-sm" Text="Gửi" runat="server" />
+            <% } %>
         </div>
     </div>
 </asp:Content>

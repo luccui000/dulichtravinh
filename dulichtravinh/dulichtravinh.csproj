@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Auth\Callback.aspx" />
     <Content Include="Resources\css\app.css" />
     <Content Include="Resources\css\ckeditor.css" />
     <Content Include="Resources\css\home.css" />
@@ -159,6 +160,13 @@
     <Compile Include="App.Master.designer.cs">
       <DependentUpon>App.Master</DependentUpon>
     </Compile>
+    <Compile Include="Auth\Callback.aspx.cs">
+      <DependentUpon>Callback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth\Callback.aspx.designer.cs">
+      <DependentUpon>Callback.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Extends\BaseService.cs" />
     <Compile Include="Helpers\Constant.cs" />
     <Compile Include="Helpers\Hash.cs" />
@@ -167,7 +175,9 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\DiaDiem.cs" />
+    <Compile Include="Models\GoogleToken.cs" />
     <Compile Include="Models\HinhAnhModel.cs" />
+    <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\Model.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -189,6 +199,7 @@
     <Compile Include="Services\DichVanBan.asmx.cs">
       <DependentUpon>DichVanBan.asmx</DependentUpon>
     </Compile>
+    <Compile Include="Services\GoogleService.cs" />
     <Compile Include="Services\HinhAnh.asmx.cs">
       <DependentUpon>HinhAnh.asmx</DependentUpon>
     </Compile>

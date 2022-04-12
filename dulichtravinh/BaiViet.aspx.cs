@@ -54,5 +54,16 @@ namespace dulichtravinh
             }
 
         } 
+        protected void loginWithGoogle_click(object sender, EventArgs e)
+        {
+            
+            string url = String.Format(
+                "https://accounts.google.com/o/oauth2/v2/auth?scope=profile&include_granted_scopes=true&redirect_uri={0}&response_type=code&client_id={1}",
+                Constant.GOOGLE_REDIRECT_URL,
+                Constant.GOOGLE_CLIENT_ID
+            );
+            Session["previous_url"] = Request.Url;
+            Response.Redirect(url);
+        }
     }
 }

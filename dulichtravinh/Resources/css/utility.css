@@ -55,10 +55,17 @@ button, input[type = "submit"]{
 .btn{
     padding: 0.7rem 2.4rem;
     border-radius: 0.2rem;
-    font-weight: 600;
+    font-weight: 600; 
+    color: #fff;  
+    display: block;
+}
+.btn-primary {
     background-color: var(--green);
-    color: #fff;
     border: 1px solid var(--green);
+}
+.btn-danger {
+    background-color: var(--danger);
+    border: 1px solid var(--danger);
 }
 .btn:hover{
     opacity: 0.9;
@@ -66,14 +73,16 @@ button, input[type = "submit"]{
     -o-transition: var(--trans);
     transition: var(--trans);
 }
-
+.btn-sm {
+    padding: 10px 20px;
+}
 /* css stop transition and animation */
-.resize-animation-stopper *{
-    -webkit-animation: none!important;
-            animation: none!important;
-    -webkit-transition: none!important;
-    -o-transition: none!important;
-    transition: none!important;
+.resize-animation-stopper * {
+    -webkit-animation: none !important;
+    animation: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
 }
 
 .py-4{
