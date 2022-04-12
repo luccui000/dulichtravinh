@@ -40,6 +40,24 @@ namespace dulichtravinh {
         protected global::System.Web.UI.WebControls.TextBox txtTenDiaDiemTiengAnh;
         
         /// <summary>
+        /// txtMoTaNgan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMoTaNgan;
+        
+        /// <summary>
+        /// txtMoTaNganTiengAnh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMoTaNganTiengAnh;
+        
+        /// <summary>
         /// txtIFrame control.
         /// </summary>
         /// <remarks>
@@ -67,13 +85,13 @@ namespace dulichtravinh {
         protected global::System.Web.UI.WebControls.TextBox txtViDo;
         
         /// <summary>
-        /// txtDiaChi control.
+        /// txtDiaChiText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDiaChi;
+        protected global::System.Web.UI.WebControls.TextBox txtDiaChiText;
         
         /// <summary>
         /// txtMoTa control.

@@ -29,11 +29,11 @@
                     <h3 class="text-uppercase">Đăng nhập quản trị viên</h3>
                     <div class="form-group">
                         <label >Tên đăng nhập</label>
-                        <asp:TextBox ID="txtTenDangNhap" CssClass="form-control" runat="server" />
+                        <asp:TextBox ID="txtTenDangNhap" value="admin" CssClass="form-control" runat="server" />
                     </div>
                     <div class="form-group">
                         <label >Mật khẩu</label>
-                        <asp:TextBox ID="txtMatKhau" type="password" CssClass="form-control" runat="server" />
+                        <asp:TextBox ID="txtMatKhau" value="Pass@123" type="password" CssClass="form-control" runat="server" />
                     </div>
                     <asp:Button ID="btnDangNhap" CssClass="btn btn-primary btn-block" Text="Đăng nhập" runat="server" OnClick="btnDangNhap_Click"/> 
                 </div>

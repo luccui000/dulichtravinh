@@ -9,6 +9,6 @@ namespace dulichtravinh.Helpers
     {
         public const string CONNECTION_STRING_NAME = "dulichtravinh";
         public const string IMAGE_UPLOAD_DIRECTORY = "Upload/images/";
-        public const string GOOGLE_MAP_API_KEY = "AIzaSyAjgmGqle8cKGtW7eijYwmG6lxwI-V6jkM";
+        public const string GOOGLE_MAP_API_KEY = "AIzaSyDQ79vsnbZlWGRjagom6acBhXfM31TniDY";
     }
 }

@@ -20,6 +20,14 @@
                                     <label for="txtTenDiaDiemTiengAnh">Tên địa điểm (bản tiếng anh)</label>
                                     <asp:TextBox CssClass="form-control" placeholder="Tên địa điểm (bản tiếng anh)" ID="txtTenDiaDiemTiengAnh" runat="server"></asp:TextBox> 
                                 </div>
+                                <div class="form-group">
+                                    <label>Mô tả ngắn về địa điểm</label>
+                                    <asp:TextBox ID="txtMoTaNgan" TextMode="MultiLine" placeholder="Mô tả ngắn về địa điểm" CssClass="form-control" runat="server" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Mô tả ngắn về địa điểm</label>
+                                    <asp:TextBox ID="txtMoTaNganTiengAnh" TextMode="MultiLine" placeholder="Mô tả ngắn về địa điểm" CssClass="form-control" runat="server" />
+                                </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group position-relative">
@@ -34,13 +42,13 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <asp:Label Text="Kinh độ" AssociatedControlID="txtKinhDo" runat="server" /> 
+                                            <asp:Label Text="Kinh độ" runat="server" /> 
                                             <asp:TextBox CssClass="form-control" placeholder="Kinh độ" ID="txtKinhDo" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group"> 
-                                            <asp:Label Text="Vĩ độ" AssociatedControlID="txtViDo" runat="server" />
+                                            <asp:Label Text="Vĩ độ" runat="server" />
                                             <asp:TextBox CssClass="form-control" placeholder="Vĩ độ" ID="txtViDo" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
@@ -48,15 +56,15 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <asp:Label Text="Địa chỉ" AssociatedControlID="txtDiaChi" runat="server" />
-                                            <asp:TextBox placeholder="Địa chỉ" CssClass="form-control" ID="txtDiaChi" runat="server" />
+                                            <asp:Label Text="Địa chỉ" runat="server" />
+                                            <asp:TextBox CssClass="form-control" placeholder="Địa chỉ" ID="txtDiaChiText" runat="server"></asp:TextBox> 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <asp:Label AssociatedControlID="txtMoTa" Text="Mô tả địa điểm" runat="server" />
+                                            <asp:Label Text="Mô tả địa điểm" runat="server" />
                                             <asp:TextBox placeholder="Mô tả địa điểm" TextMode="MultiLine" ID="txtMoTa" Rows="10"  CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
@@ -64,7 +72,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <asp:Label AssociatedControlID="txtMoTaTiengAnh" Text="Mô tả địa điểm (bản tiếng anh)" runat="server" />
+                                            <asp:Label Text="Mô tả địa điểm (bản tiếng anh)" runat="server" />
                                             <asp:TextBox placeholder="Mô tả địa điểm (bản tiếng anh)" TextMode="MultiLine" ID="txtMoTaTiengAnh" Rows="10" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
