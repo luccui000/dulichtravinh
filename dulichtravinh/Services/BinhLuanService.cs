@@ -5,7 +5,8 @@ using System.Web;
 
 namespace dulichtravinh.Services
 {
-    public class CommentService
+    public class BinhLuanService
     {
+        // public List<>
     }
 }

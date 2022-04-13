@@ -173,6 +173,7 @@
     <Compile Include="Helpers\ImageUploader.cs" />
     <Compile Include="Helpers\Translator.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\BinhLuan.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\DiaDiem.cs" />
     <Compile Include="Models\GoogleToken.cs" />
@@ -191,7 +192,7 @@
       <DependentUpon>HinhAnh.aspx</DependentUpon>
     </Compile>
     <Compile Include="Services\BaiVietService.cs" />
-    <Compile Include="Services\CommentService.cs" />
+    <Compile Include="Services\BinhLuanService.cs" />
     <Compile Include="Services\DanhMucService.cs" />
     <Compile Include="Services\DiaDiem.asmx.cs">
       <DependentUpon>DiaDiem.asmx</DependentUpon>

@@ -63,7 +63,7 @@
                 </asp:LinkButton> 
                 
             <% } else { %>
-                <asp:Button ID="btnComment" CssClass="btn btn-primary btn-sm" Text="Gửi" runat="server" />
+                <asp:Button ID="btnComment" CssClass="btn btn-primary btn-sm" Text="Gửi" runat="server" OnClick="btnComment_Click" />
             <% } %>
         </div>
     </div>

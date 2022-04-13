@@ -40,6 +40,7 @@ namespace dulichtravinh.Models
         public List<BinhLuan> all()
         {
             var binhluans = new List<BinhLuan>();
+
             return binhluans;
         }
     }
