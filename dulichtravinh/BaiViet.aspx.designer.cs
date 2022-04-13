@@ -40,6 +40,15 @@ namespace dulichtravinh {
         protected global::System.Web.UI.WebControls.Label lblMoTa;
         
         /// <summary>
+        /// txtDiaDiemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField txtDiaDiemId;
+        
+        /// <summary>
         /// txtComment control.
         /// </summary>
         /// <remarks>

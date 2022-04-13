@@ -28,21 +28,17 @@ namespace dulichtravinh.Auth
                     Response.Cookies["access_token"].Expires = DateTime.Now.AddDays(30);
                     KhachHang khachhang = new KhachHang();
                     khachhang.dangNhapVoiGoogle(token); 
-                    if (!String.IsNullOrEmpty(khachhang.GoogleId) && !khachhang.daTonTai(khachhang.GoogleId))
+                    if (!String.IsNullOrEmpty(khachhang.GoogleId))
                     {
-                        if (khachhang.dangNhap())
+                        if(!khachhang.daTonTai(khachhang.GoogleId))
                         {
-                            Session["login_with_google"] = true;
-                            Session["TenHienThi"] = khachhang.TenGoogle;
-                            Session["GoogleId"] = khachhang.GoogleId;
-                            Session["access_token"] = token;
-                            Response.Redirect(Session["previous_url"].ToString());
+                            khachhang.dangNhap();
                         }
-                    } else if (!String.IsNullOrEmpty(khachhang.GoogleId)) {
                         Session["login_with_google"] = true;
                         Session["TenHienThi"] = khachhang.TenGoogle;
                         Session["GoogleId"] = khachhang.GoogleId;
                         Session["access_token"] = token;
+                        Session["id"] = khachhang.LayId(khachhang.GoogleId, ThongQua.GOOGLEID);
                         Response.Redirect(Session["previous_url"].ToString());
                     } else if (String.IsNullOrEmpty(khachhang.GoogleId))
                     {

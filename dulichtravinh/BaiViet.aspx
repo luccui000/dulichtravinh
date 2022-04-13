@@ -53,7 +53,7 @@
         <div class="comment mt-3">
             <div class="form-group">
                 <label>Nội dung</label>
-                <asp:HiddenField ID="txtDiaDiemId" Value="<% Response.Write(!String.IsNullOrEmpty(Request.QueryString["Id"]) ? Request.QueryString["Id"] : ""); %>" runat="server" />
+                <asp:HiddenField ID="txtDiaDiemId" Value="" runat="server" />
                 <asp:TextBox id="txtComment" runat="server" TextMode="MultiLine" />
             </div> 
             <% if (Session["access_token"] == null) {%>  

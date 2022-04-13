@@ -299,6 +299,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contracts\" />
+    <Folder Include="Enums\" />
     <Folder Include="ObjectValues\" />
     <Folder Include="Upload\images\" />
   </ItemGroup>

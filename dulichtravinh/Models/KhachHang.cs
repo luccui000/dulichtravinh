@@ -11,7 +11,12 @@ using System.Data.SqlClient;
 using dulichtravinh.Helpers;
 
 namespace dulichtravinh.Models
-{ 
+{
+    public enum ThongQua
+    {
+        EMAIL,
+        GOOGLEID
+    }
     public class KhachHang
     {
         public int Id
@@ -49,6 +54,12 @@ namespace dulichtravinh.Models
             get;
             set;
         }
+        public string accessToken
+        {
+            get;
+            set;
+        }
+        
         public string TenGoogle
         {
             get;
@@ -71,6 +82,41 @@ namespace dulichtravinh.Models
                 );
 
         }
+        public int LayId(string giaTri, ThongQua thongQua)
+        {
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING); 
+            SqlCommand cmd;
+            switch (thongQua)
+            {
+                case ThongQua.EMAIL:
+                    cmd = new SqlCommand("SP_LayIdKhachHangQuaEmail", conn);
+                    cmd.Parameters.AddWithValue("@Email", giaTri);
+                    break;
+                case ThongQua.GOOGLEID:
+                    cmd = new SqlCommand("SP_LayIdKhachHangQuaGoogleId", conn);
+                    cmd.Parameters.AddWithValue("@GoogleId", giaTri);
+                    break;
+                default:
+                    cmd = new SqlCommand("SP_LayIdKhachHangQuaEmail", conn);
+                    cmd.Parameters.AddWithValue("@Email", giaTri);
+                    break;
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@Id", SqlDbType.Int).Direction = ParameterDirection.Output;
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if(i > 0)
+                {
+                    int Id = int.Parse(cmd.Parameters["@Id"].Value.ToString());
+                    return Id;
+                }
+            } catch (Exception ex)
+            {
+                return 0;
+            }
+            return 0;
+        } 
         public bool daTonTai(string googleId)
         {
             SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING); 
@@ -111,7 +157,8 @@ namespace dulichtravinh.Models
             this.GoogleId = userInfo.id;
             this.NgonNgu = userInfo.locale;
             this.TenGoogle = userInfo.name;
-            this.Email = userInfo.email; 
+            this.Email = userInfo.email;
+            this.accessToken = accessToken;
             return this;
         }  
         public bool dangNhap()
@@ -150,6 +197,36 @@ namespace dulichtravinh.Models
             this.MatKhau = Hash.make(this.MatKhau);
 
             return this;
+        }
+        public bool ThemBinhLuanMoi(int BaiVietId, String noiDung, int BinhLuanCha)
+        {
+            int currentId = 0;
+            if (!String.IsNullOrEmpty(this.accessToken)) 
+                currentId = this.LayId(this.accessToken, ThongQua.GOOGLEID);
+            else if(!String.IsNullOrEmpty(this.Email)) 
+                currentId = this.LayId(this.Email, ThongQua.EMAIL); 
+
+            if(currentId == 0) 
+                return false; 
+
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+            SqlCommand cmd = new SqlCommand("SP_ThemBinhLuanMoi", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@KhachHangId", currentId);
+            cmd.Parameters.AddWithValue("@BaiVietId", BaiVietId);
+            cmd.Parameters.AddWithValue("@NoiDungBinhLuan", noiDung);
+            if(BinhLuanCha != 0)
+                cmd.Parameters.AddWithValue("@BinhLuanCha", BinhLuanCha);
+            try
+            {
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                    return true;
+            } catch(Exception ex)
+            {
+                return false;
+            }
+            return false;
         }
     }
 }

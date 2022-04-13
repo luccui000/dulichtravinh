@@ -5,8 +5,8 @@
     <header class = "flex">
             <div class = "container">
                 <div class = "header-title">
-                    <h1>Leave Your Footprints</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
+                    <h1>Du lịch giữa lòng Trà Vinh</h1>
+                    <p>Gần gủi, dễ thương, dễ xao xuyến nói lên tất cả về vùng đất và con người nơi đây!</p>
                 </div> 
             </div>
         </header> 

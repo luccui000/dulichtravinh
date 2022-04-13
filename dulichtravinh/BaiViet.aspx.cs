@@ -26,6 +26,7 @@ namespace dulichtravinh
                 Response.Redirect("/"); 
             if (isNumeric)
             {
+                txtDiaDiemId.Value = Id.ToString();
                 DiaDiem diaDiem = new DiaDiem();
                 SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings[Constant.CONNECTION_STRING_NAME].ConnectionString);
                 SqlCommand cmd = new SqlCommand("SP_TimDiaDiemTheoIdVaNgonNgu", conn);
@@ -68,7 +69,9 @@ namespace dulichtravinh
 
         protected void btnComment_Click(object sender, EventArgs e)
         {
-
+            bool daThem = (new KhachHang()).ThemBinhLuanMoi(Id, txtComment.Text.Trim(), 0);
+            if (daThem)
+                Response.Write(String.Format("<script>alert('Bình luận của bạn đã được thêm, để hạn chế nội dung tiêu cực chúng tôi sẽ duyệt sau đó sẽ công khai bình luận này, Cảm ơn bạn đã góp ý')</script>"));
         }
     }
 }
