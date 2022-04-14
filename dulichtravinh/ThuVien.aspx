@@ -10,87 +10,7 @@
             </div>
         </div>
     </header>
-    <!-- header -->
-
-    <!-- gallery section -->
-    <div id = "gallery" class = "py-4">
-        <div class = "container">
-            <div class = "gallery-row">
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-1.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-2.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-3.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-4.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-5.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-6.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-7.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-8.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-                <div class = "gallery-item shadow">
-                    <img src = "/Resources/images/gallery-9.jpg" alt = "gallery img">
-                    <span class = "zoom-icon">
-                        <i class = "fas fa-search-plus"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end of gallery section -->
-
-    <!-- img modal -->
-    <div id = "img-modal-box">
-        <div id = "img-modal">
-            <button type = "button" id = "modal-close-btn" class = "flex">
-                <i class = "fas fa-times"></i>
-            </button>
-            <button type = "button" id = "prev-btn" class = "flex">
-                <i class = "fas fa-chevron-left"></i>
-            </button>
-            <button type = "button" id = "next-btn" class = "flex">
-                <i class = "fas fa-chevron-right"></i>
-            </button>
-            <img src = "/Resources/images/gallery-1.jpg">
-        </div>
-    </div>
-    <!-- end of img modal -->
+    <!-- header --> 
 
     <!-- popular places section -->
     <section id = "popular" class = "py-4">
@@ -100,34 +20,20 @@
         </div>
 
         <div class = "popular-row">
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-1.jpg" alt = "">
-                <div>
-                    <span>Eiffel Tower, Paris</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
+            <% foreach (var diadiem in danhSachDiaDiem) { %>
+                <div class="popular-item shadow">
+                    <img src="<% Response.Write(diadiem.DuongDan); %>" alt="<% Response.Write(diadiem.TenDiaDiem); %>">
+                    <div>
+                        <span><% Response.Write(diadiem.TenDiaDiem); %></span> 
+                        <p class = "text"><% Response.Write(diadiem.MoTaNgan); %></p>
+                    </div>
                 </div>
-            </div>
+            <% } %>
 
             <div class = "popular-item shadow">
                 <img src = "/Resources/images/popular-2.jpg" alt = "">
                 <div>
-                    <span>Machu Picchu, Peru</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
+                    <span>Machu Picchu, Peru</span> 
                     <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
                 </div>
             </div>
@@ -228,7 +134,40 @@
                 </div>
             </div>
         </div>
+
     </section>
+    <div id = "gallery" class = "py-4">
+        <div class = "container">
+            <div class = "gallery-row">
+                <% foreach (var hinhanh in danhSachHinhAnh) {%>
+                    <div class = "gallery-item shadow">
+                        <img src="<% Response.Write(hinhanh.DuongDan); %>" alt = "<% Response.Write(hinhanh.TenHinhAnh); %>">
+                        <span class = "zoom-icon">
+                            <i class = "fas fa-search-plus"></i>
+                        </span>
+                    </div>
+                <% } %> 
+            </div>
+        </div>
+    </div>
+    <!-- end of gallery section -->
+
+    <!-- img modal -->
+    <div id = "img-modal-box">
+        <div id = "img-modal">
+            <button type = "button" id = "modal-close-btn" class = "flex">
+                <i class = "fas fa-times"></i>
+            </button>
+            <button type = "button" id = "prev-btn" class = "flex">
+                <i class = "fas fa-chevron-left"></i>
+            </button>
+            <button type = "button" id = "next-btn" class = "flex">
+                <i class = "fas fa-chevron-right"></i>
+            </button>
+            <img src = "/Resources/images/gallery-1.jpg">
+        </div>
+    </div>
+    <!-- end of img modal -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
     <script>
@@ -238,14 +177,13 @@
         const modalCloseBtn = document.getElementById('modal-close-btn');
         const nextBtn = document.getElementById('next-btn');
         const prevBtn = document.getElementById('prev-btn');
-        let imgIndex = 0;
+        let imgIndex = 0; 
 
         allGalleryItem.forEach((galleryItem) => {
-            galleryItem.addEventListener('click', () => {
+            galleryItem.addEventListener('click', () => { 
                 imgModalDiv.style.display = "block";
-                let imgSrc = galleryItem.querySelector('img').src;
-                imgIndex = parseInt(imgSrc.split("-")[1].substring(0, 1));
-                showImageContent(imgIndex);
+                let imgSrc = galleryItem.querySelector('img').src; 
+                showImageContent(imgSrc);
             })
         });
 
@@ -267,12 +205,18 @@
             showImageContent(imgIndex);
         });
 
-        function showImageContent(index){
-            imgModalDiv.querySelector('#img-modal img').src = `/Resources/images/gallery-${index}.jpg`;
+        function showImageContent(imageSrc){
+            imgModalDiv.querySelector('#img-modal img').src = imageSrc;
         }
 
         modalCloseBtn.addEventListener('click', () => {
             imgModalDiv.style.display = "none";
         })
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+                imgModalDiv.style.display = "none";
+            }
+        };
     </script>
 </asp:Content>

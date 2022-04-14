@@ -55,6 +55,13 @@ namespace dulichtravinh
             }
 
         } 
+        public List<BinhLuan> danhSachBinhLuan
+        {
+            get
+            {
+                return BinhLuan.danhSachBinhLuan(Id);
+            }
+        }
         protected void loginWithGoogle_click(object sender, EventArgs e)
         {
             
@@ -69,9 +76,36 @@ namespace dulichtravinh
 
         protected void btnComment_Click(object sender, EventArgs e)
         {
-            bool daThem = (new KhachHang()).ThemBinhLuanMoi(Id, txtComment.Text.Trim(), 0);
-            if (daThem)
-                Response.Write(String.Format("<script>alert('Bình luận của bạn đã được thêm, để hạn chế nội dung tiêu cực chúng tôi sẽ duyệt sau đó sẽ công khai bình luận này, Cảm ơn bạn đã góp ý')</script>"));
+            if(!String.IsNullOrEmpty(txtComment.Text.Trim()))
+            {
+                string GoogleId = Session["GoogleId"].ToString();
+                KhachHang khachHang = new KhachHang();
+                int KhachhangId = khachHang.layIdQuaGoogleId(GoogleId);
+
+                SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+                SqlCommand cmd = new SqlCommand("SP_ThemBinhLuanMoi", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@KhachHangId", KhachhangId);
+                cmd.Parameters.AddWithValue("@BaiVietId", Id);
+                cmd.Parameters.AddWithValue("@NoiDungBinhLuan", txtComment.Text);  
+                try
+                {
+                    conn.Open();
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                    {
+                        txtComment.Text = "";
+                        Response.Write(String.Format("<script>alert('Bình luận của bạn đã được thêm, để hạn chế nội dung tiêu cực chúng tôi sẽ duyệt sau đó sẽ công khai bình luận này, Cảm ơn bạn đã góp ý')</script>")); 
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.Message);
+                } finally
+                {
+                    conn.Close();
+                }  
+            }
         }
     }
 }

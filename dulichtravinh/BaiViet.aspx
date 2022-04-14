@@ -18,7 +18,7 @@
         }
         .form-group input,
         .form-group textarea {
-            width: 100%;
+            width: 500px;
             max-width: 1320px;
             border: 2px solid #ccc;
             padding: 10px;
@@ -28,10 +28,43 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--green);
-
+            border-color: var(--green); 
         } 
-
+        .line {
+            width: 522px;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+            position: relative;
+        } 
+        .post-comments { 
+            width: 523px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .post-comment-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 10px 0;  
+            padding: 5px; 
+        }
+        .post-comment-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin-right: 30px;
+        }
+        .post-comment-content {
+            width: 100%;
+            border-bottom: 1px dashed #ccc;
+        }
+        .post-comment-content p {
+            font-size: 10px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -47,24 +80,40 @@
             </div>
         </div>
     </header>
-    <div class="post-container"> 
-
+    <div class="post-container">  
         <p><asp:Label ID="lblMoTa" Text="" runat="server" /></p>  
+        <div class="line"></div>
+        <h3>Bình luận</h3>
+        <ul class="post-comments"> 
+            <% foreach (var binhluan in danhSachBinhLuan) {%>
+                <li class="post-comment-item">
+                    <div>
+                        <img class="post-comment-img" src="/Resources/images/blog-2.jpg" alt="Alternate Text" />
+                    </div>
+                    <div class="post-comment-content">
+                        <span><% Response.Write(binhluan.NoiDungBinhLuan); %></span>
+                        <p><% Response.Write(binhluan.NgayTao); %></p>
+                    </div>
+                </li> 
+            <% } %>
+        </ul>
         <div class="comment mt-3">
             <div class="form-group">
                 <label>Nội dung</label>
                 <asp:HiddenField ID="txtDiaDiemId" Value="" runat="server" />
                 <asp:TextBox id="txtComment" runat="server" TextMode="MultiLine" />
             </div> 
-            <% if (Session["access_token"] == null) {%>  
-                <asp:LinkButton ID="loginWithGoogle" runat="server" CssClass="btn btn-danger btn-sm" Width="240px" OnClick="loginWithGoogle_click">
-                    <i class="fab fa-google"></i> 
-                    <span style="margin-left: 10px">Đăng nhập bằng Google</span> 
-                </asp:LinkButton> 
+            <div>
+                <% if (Session["access_token"] == null) {%>  
+                    <asp:LinkButton ID="loginWithGoogle" runat="server" CssClass="btn btn-danger btn-sm" Width="240px" OnClick="loginWithGoogle_click">
+                        <i class="fab fa-google"></i> 
+                        <span style="margin-left: 10px">Đăng nhập bằng Google</span> 
+                    </asp:LinkButton> 
                 
-            <% } else { %>
-                <asp:Button ID="btnComment" CssClass="btn btn-primary btn-sm" Text="Gửi" runat="server" OnClick="btnComment_Click" />
-            <% } %>
+                <% } else { %>
+                    <asp:Button ID="btnComment" CssClass="btn btn-primary btn-sm" Text="Gửi" runat="server" OnClick="btnComment_Click" />
+                <% } %>
+            </div>
         </div>
     </div>
 </asp:Content>

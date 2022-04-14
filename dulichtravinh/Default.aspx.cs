@@ -18,7 +18,7 @@ namespace dulichtravinh
         {
             get
             {
-                return (new DiaDiem()).topDiaDiemNoiBat();
+                return (new DiaDiem()).topDiaDiemNoiBat("VietNam");
             }
         }
     }

@@ -105,6 +105,7 @@ namespace dulichtravinh.Models
             cmd.Parameters.Add("@Id", SqlDbType.Int).Direction = ParameterDirection.Output;
             try
             {
+                conn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if(i > 0)
                 {
@@ -114,9 +115,38 @@ namespace dulichtravinh.Models
             } catch (Exception ex)
             {
                 return 0;
+            } finally
+            {
+                conn.Close();
             }
             return 0;
         } 
+        public int layIdQuaGoogleId(string GoogleId)
+        { 
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM KhachHang WHERE GoogleId=@GoogleId", conn);
+            DataTable dt = new DataTable();
+            cmd.Parameters.AddWithValue("@GoogleId", GoogleId);
+            try
+            {
+                conn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    return int.Parse(dt.Rows[0][0].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+        }
         public bool daTonTai(string googleId)
         {
             SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING); 
@@ -198,33 +228,27 @@ namespace dulichtravinh.Models
 
             return this;
         }
-        public bool ThemBinhLuanMoi(int BaiVietId, String noiDung, int BinhLuanCha)
-        {
-            int currentId = 0;
-            if (!String.IsNullOrEmpty(this.accessToken)) 
-                currentId = this.LayId(this.accessToken, ThongQua.GOOGLEID);
-            else if(!String.IsNullOrEmpty(this.Email)) 
-                currentId = this.LayId(this.Email, ThongQua.EMAIL); 
-
-            if(currentId == 0) 
-                return false; 
-
+        public bool ThemBinhLuanMoi(int KhachhangId, int BaiVietId, String noiDung, int BinhLuanCha)
+        { 
             SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
             SqlCommand cmd = new SqlCommand("SP_ThemBinhLuanMoi", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@KhachHangId", currentId);
-            cmd.Parameters.AddWithValue("@BaiVietId", BaiVietId);
-            cmd.Parameters.AddWithValue("@NoiDungBinhLuan", noiDung);
-            if(BinhLuanCha != 0)
-                cmd.Parameters.AddWithValue("@BinhLuanCha", BinhLuanCha);
+            cmd.Parameters.AddWithValue("@KhachHangId", KhachhangId);
+            cmd.Parameters.AddWithValue("@BaiVietId", Id);
+            cmd.Parameters.AddWithValue("@NoiDungBinhLuan", noiDung);  
             try
             {
+                conn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
                     return true;
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return false;
+            } finally
+            {
+                conn.Close();
             }
             return false;
         }

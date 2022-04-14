@@ -78,6 +78,8 @@
     <Content Include="Auth\Callback.aspx" />
     <Content Include="Resources\css\app.css" />
     <Content Include="Resources\css\ckeditor.css" />
+    <Content Include="Resources\css\fullpage.min.css" />
+    <Content Include="Resources\css\gioithieu.css" />
     <Content Include="Resources\css\home.css" />
     <Content Include="Resources\css\normalize.css" />
     <Content Include="Resources\css\responsive.css" />
@@ -94,6 +96,10 @@
     <Content Include="Resources\images\blog-6.jpg" />
     <Content Include="Resources\images\blog-7.jpg" />
     <Content Include="Resources\images\blog-8.jpg" />
+    <Content Include="Resources\images\chair1.png" />
+    <Content Include="Resources\images\chair2.png" />
+    <Content Include="Resources\images\chair3.png" />
+    <Content Include="Resources\images\couch.jpg" />
     <Content Include="Resources\images\facts-img.jpg" />
     <Content Include="Resources\images\featured-berlin-germany.jpg" />
     <Content Include="Resources\images\featured-fuvahmulah-maldives.jpg" />
@@ -111,6 +117,7 @@
     <Content Include="Resources\images\gallery-8.jpg" />
     <Content Include="Resources\images\gallery-9.jpg" />
     <Content Include="Resources\images\header-bg.jpg" />
+    <Content Include="Resources\images\lamp.png" />
     <Content Include="Resources\images\popular-1.jpg" />
     <Content Include="Resources\images\popular-2.jpg" />
     <Content Include="Resources\images\popular-3.jpg" />
@@ -120,10 +127,13 @@
     <Content Include="Resources\images\popular-7.jpg" />
     <Content Include="Resources\images\popular-8.jpg" />
     <Content Include="Resources\images\services-bg.jpg" />
+    <Content Include="Resources\images\sofa.png" />
     <Content Include="Resources\images\test-1.jpg" />
     <Content Include="Resources\images\test-2.jpg" />
     <Content Include="Resources\images\test-3.jpg" />
+    <Content Include="Resources\js\fullpage.min.js" />
     <Content Include="Resources\js\geographic.js" />
+    <Content Include="Resources\js\gioithieu.js" />
     <Content Include="Resources\js\googlemaps.js" />
     <Content Include="Resources\js\script.js" />
     <Content Include="Resources\js\translate.js" />
@@ -144,6 +154,7 @@
     <Content Include="Default.aspx" />
     <Content Include="ThuVien.aspx" />
     <Content Include="BaiViet.aspx" />
+    <Content Include="GioiThieu.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -169,6 +180,7 @@
     </Compile>
     <Compile Include="Extends\BaseService.cs" />
     <Compile Include="Helpers\Constant.cs" />
+    <Compile Include="Helpers\DateFormat.cs" />
     <Compile Include="Helpers\Hash.cs" />
     <Compile Include="Helpers\ImageUploader.cs" />
     <Compile Include="Helpers\Translator.cs" />
@@ -183,6 +195,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\ThuVien.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Admin\HinhAnh.aspx.cs">
       <DependentUpon>HinhAnh.aspx</DependentUpon>
@@ -283,6 +296,13 @@
     </Compile>
     <Compile Include="BaiViet.aspx.designer.cs">
       <DependentUpon>BaiViet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GioiThieu.aspx.cs">
+      <DependentUpon>GioiThieu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GioiThieu.aspx.designer.cs">
+      <DependentUpon>GioiThieu.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

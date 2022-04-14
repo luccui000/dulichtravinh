@@ -5,10 +5,11 @@ using System.Web;
 using System.Data;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using dulichtravinh.Helpers;
 
 namespace dulichtravinh.Models
 {
-    public class DiaDiem: BaseModel
+    public class DiaDiem : BaseModel
     {
         public int Id
         {
@@ -75,16 +76,51 @@ namespace dulichtravinh.Models
             get;
             set;
         }
-        public List<DiaDiem> topDiaDiemNoiBat()
+        public static List<DiaDiem> danhSachDiaDiem(string ngonNgu)
         {
-            var diadiems = new List<DiaDiem>(); 
-            SqlCommand cmd = new SqlCommand("SP_LayTopDiaDiemTheoNgonNgu", this.conn);
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+            var diadiems = new List<DiaDiem>();
+            SqlCommand cmd = new SqlCommand("SP_LayDanhSachDiaDiemTheoNgonNgu", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@BanDich", "VietNam");
+            cmd.Parameters.AddWithValue("@NgonNgu", ngonNgu);
 
             try
             {
-                this.conn.Open();
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    diadiems.Add(new DiaDiem()
+                    {
+                        Id = reader.GetInt32(0),
+                        TenDiaDiem = reader.GetString(1),
+                        DuongDan = reader.GetString(2),
+                        MoTaNgan = !reader.IsDBNull(3) ? reader.GetString(3) : ""
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return diadiems;
+        }
+        public List<DiaDiem> topDiaDiemNoiBat(string ngonNgu)
+        {
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+            var diadiems = new List<DiaDiem>(); 
+            SqlCommand cmd = new SqlCommand("SP_LayTopDiaDiemTheoNgonNgu", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@NgonNgu", ngonNgu);
+
+            try
+            {
+                conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -102,7 +138,7 @@ namespace dulichtravinh.Models
                 
             } finally
             {
-                this.conn.Close();
+                conn.Close();
             }
             return diadiems;
         }
