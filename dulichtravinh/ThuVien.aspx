@@ -5,8 +5,7 @@
     <header class = "flex header-sm">
         <div class = "container">
             <div class = "header-title">
-                <h1>Gallery</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum maxime enim odit illum in molestias beatae doloremque, ratione optio.</p>
+                <h1>Thư viện</h1> 
             </div>
         </div>
     </header>
@@ -15,8 +14,8 @@
     <!-- popular places section -->
     <section id = "popular" class = "py-4">
         <div class = "title-wrap">
-            <span class = "sm-title">know about some coo destination</span>
-            <h2 class = "lg-title">Popular Places</h2>
+            <span class = "sm-title">Tất cả các địa điểm</span>
+            <h2 class = "lg-title">bạn nên ghé thăm</h2>
         </div>
 
         <div class = "popular-row">
@@ -28,116 +27,15 @@
                         <p class = "text"><% Response.Write(diadiem.MoTaNgan); %></p>
                     </div>
                 </div>
-            <% } %>
-
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-2.jpg" alt = "">
-                <div>
-                    <span>Machu Picchu, Peru</span> 
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                </div>
-            </div>
-
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-3.jpg" alt = "">
-                <div>
-                    <span>Acropolis, Athens</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                </div>
-            </div>
-
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-4.jpg" alt = "">
-                <div>
-                    <span>Bali, Indonesia</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                </div>
-            </div>
-
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-5.jpg" alt = "">
-                <div>
-                    <span>Dubai, United Arab Emirates</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                </div>
-            </div>
-
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-6.jpg" alt = "">
-                <div>
-                    <span>Bhutan</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                </div>
-            </div>
-
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-7.jpg" alt = "">
-                <div>
-                    <span>Havana, Cuba</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                </div>
-            </div>
-
-            <div class = "popular-item shadow">
-                <img src = "/Resources/images/popular-8.jpg" alt = "">
-                <div>
-                    <span>Moskva, Russia</span>
-                    <ul class = "rating flex">
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star"></i></li>
-                        <li><i class = "fas fa-star-half-alt"></i></li>
-                        <li>&nbsp;400 reviews</li>
-                    </ul>
-                    <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, quia!</p>
-                </div>
-            </div>
+            <% } %> 
         </div>
 
     </section>
     <div id = "gallery" class = "py-4">
         <div class = "container">
+            <div class = "title-wrap"> 
+            <h2 class = "lg-title">Thư viện ảnh</h2>
+        </div>
             <div class = "gallery-row">
                 <% foreach (var hinhanh in danhSachHinhAnh) {%>
                     <div class = "gallery-item shadow">

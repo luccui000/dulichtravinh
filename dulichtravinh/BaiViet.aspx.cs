@@ -27,6 +27,7 @@ namespace dulichtravinh
             if (isNumeric)
             {
                 txtDiaDiemId.Value = Id.ToString();
+                capNhatLuotXem(Id);
                 DiaDiem diaDiem = new DiaDiem();
                 SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings[Constant.CONNECTION_STRING_NAME].ConnectionString);
                 SqlCommand cmd = new SqlCommand("SP_TimDiaDiemTheoIdVaNgonNgu", conn);
@@ -42,6 +43,7 @@ namespace dulichtravinh
                         lblTenDiaDiem.Text = reader.GetString(2); 
                         lblMoTaNgan.Text = reader.GetString(3);
                         lblMoTa.Text = reader.GetString(4);
+                        lblIframe.Text = !reader.IsDBNull(6) ? new HtmlString(reader.GetString(6)).ToHtmlString() : ""; 
                     }
                 }
                 catch (Exception ex)
@@ -105,6 +107,21 @@ namespace dulichtravinh
                 {
                     conn.Close();
                 }  
+            }
+        }
+        protected void capNhatLuotXem(int id)
+        {
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+            SqlCommand cmd = new SqlCommand("UPDATE DiaDiem SET LuotXem = LuotXem + 1 WHERE Id=@Id", conn);
+            cmd.Parameters.AddWithValue("@Id", id);
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            } catch(Exception ex ) { }
+            finally
+            {
+                conn.Close();
             }
         }
     }

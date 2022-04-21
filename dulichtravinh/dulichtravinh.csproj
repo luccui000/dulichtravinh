@@ -88,6 +88,7 @@
     <Content Include="Resources\css\utility.css" />
     <Content Include="Resources\font\fonts.css" />
     <Content Include="Resources\images\about-img.jpg" />
+    <Content Include="Resources\images\bien-ba-dong.jpg" />
     <Content Include="Resources\images\blog-1.jpg" />
     <Content Include="Resources\images\blog-2.jpg" />
     <Content Include="Resources\images\blog-3.jpg" />
@@ -100,6 +101,7 @@
     <Content Include="Resources\images\chair2.png" />
     <Content Include="Resources\images\chair3.png" />
     <Content Include="Resources\images\couch.jpg" />
+    <Content Include="Resources\images\English.png" />
     <Content Include="Resources\images\facts-img.jpg" />
     <Content Include="Resources\images\featured-berlin-germany.jpg" />
     <Content Include="Resources\images\featured-fuvahmulah-maldives.jpg" />
@@ -131,12 +133,15 @@
     <Content Include="Resources\images\test-1.jpg" />
     <Content Include="Resources\images\test-2.jpg" />
     <Content Include="Resources\images\test-3.jpg" />
+    <Content Include="Resources\images\tra-vinh-day-nhanh-tien-do-cac-du-an-dau-tu-8844.jpg" />
+    <Content Include="Resources\images\Vietnam.png" />
     <Content Include="Resources\js\fullpage.min.js" />
     <Content Include="Resources\js\geographic.js" />
     <Content Include="Resources\js\gioithieu.js" />
     <Content Include="Resources\js\googlemaps.js" />
     <Content Include="Resources\js\script.js" />
     <Content Include="Resources\js\translate.js" />
+    <Content Include="Resources\videos\DienGioDuyenHai.mp4" />
     <Content Include="Resources\videos\video-section.mp4" />
     <Content Include="Services\DiaDiem.asmx" />
     <Content Include="Services\DichVanBan.asmx" />
@@ -155,6 +160,7 @@
     <Content Include="ThuVien.aspx" />
     <Content Include="BaiViet.aspx" />
     <Content Include="GioiThieu.aspx" />
+    <Content Include="Admin\BinhLuan\Index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -179,6 +185,7 @@
       <DependentUpon>Callback.aspx</DependentUpon>
     </Compile>
     <Compile Include="Extends\BaseService.cs" />
+    <Compile Include="Helpers\Alert.cs" />
     <Compile Include="Helpers\Constant.cs" />
     <Compile Include="Helpers\DateFormat.cs" />
     <Compile Include="Helpers\Hash.cs" />
@@ -190,6 +197,7 @@
     <Compile Include="Models\DiaDiem.cs" />
     <Compile Include="Models\GoogleToken.cs" />
     <Compile Include="Models\HinhAnhModel.cs" />
+    <Compile Include="Models\KhachGheTham.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\Model.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -303,6 +311,13 @@
     </Compile>
     <Compile Include="GioiThieu.aspx.designer.cs">
       <DependentUpon>GioiThieu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BinhLuan\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BinhLuan\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

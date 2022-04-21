@@ -1,12 +1,5 @@
-﻿* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
- 
-
-.s1 {
-    background-image: url("/Resources/images/couch.jpg");
+﻿.s1 {
+    background-image: url(/Resources/images/bien-ba-dong.jpg);
     background-size: cover;
 }
 
@@ -16,7 +9,7 @@
     top: 20%;
     left: 50%;
     transform: translate(-50%, -20%);
-    background: linear-gradient(to left, #87c7df, #648896);
+    background: linear-gradient(to left, #fff, #ff006e);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

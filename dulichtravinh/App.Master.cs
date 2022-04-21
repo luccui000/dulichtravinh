@@ -14,16 +14,20 @@ namespace dulichtravinh
             if(Session["lang"] == null)
             {
                 Session["lang"] = "VietNam";
+            } 
+        }
+
+        protected void Language_Click(object sender, EventArgs e)
+        {
+            if(Session["lang"].ToString() == "VietNam")
+            {
+                imgFlag.ImageUrl = "./Resources/images/English.png";
+                Session["lang"] = "English";
             } else
             {
-                if(!String.IsNullOrEmpty(Request.QueryString["lang"]) && Request.QueryString["lang"] == "English")
-                { 
-                    Session["lang"] = "English";
-                } else
-                {
-                    Session["lang"] = "VietNam";
-                }
-            } 
+                imgFlag.ImageUrl = "./Resources/images/Vietnam.png";
+                Session["lang"] = "VietNam";
+            }
         }
     }
 }

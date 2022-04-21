@@ -31,25 +31,25 @@
         <div class="row">
             <div class="col-3">
                 <div class="dashboard card p-3 dashboard-page">
-                    <h2>5</h2>
-                    <p>Trang</p>
+                    <h2><asp:Label ID="lblBinhLuan" runat="server"></asp:Label></h2>
+                    <p>Bình luận</p>
                 </div>
             </div>
             <div class="col-3">
                 <div class="dashboard card p-3 dashboard-post">
-                    <h2>1</h2>
+                    <h2><asp:Label ID="lblBaiViet" runat="server"></asp:Label></h2>
                     <p>Bài viết</p>
                 </div>
             </div>
             <div class="col-3">
                 <div class="dashboard card p-3 dashboard-user">
-                    <h2>4</h2>
+                    <h2><asp:Label ID="lblKhachHang" runat="server"></asp:Label></h2>
                     <p>Người dùng</p>
                 </div>
             </div>
             <div class="col-3">
                 <div class="dashboard card p-3 dashboard-visitor">
-                    <h2>8</h2>
+                    <h2><asp:Label ID="lblKhachGheTham" runat="server"></asp:Label></h2>
                     <p>Khách ghé trong ngày</p>
                 </div>
             </div> 

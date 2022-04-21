@@ -65,6 +65,9 @@
         .post-comment-content p {
             font-size: 10px;
         }
+        .iframe iframe {
+            width: 100%;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -82,6 +85,7 @@
     </header>
     <div class="post-container">  
         <p><asp:Label ID="lblMoTa" Text="" runat="server" /></p>  
+        <p><asp:Label ID="lblIframe" CssClass="iframe" runat="server" /></p>
         <div class="line"></div>
         <h3>Bình luận</h3>
         <ul class="post-comments"> 

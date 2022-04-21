@@ -13,6 +13,42 @@ namespace dulichtravinh {
     public partial class WebForm7 {
         
         /// <summary>
+        /// lblBinhLuan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBinhLuan;
+        
+        /// <summary>
+        /// lblBaiViet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBaiViet;
+        
+        /// <summary>
+        /// lblKhachHang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKhachHang;
+        
+        /// <summary>
+        /// lblKhachGheTham control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblKhachGheTham;
+        
+        /// <summary>
         /// grTop control.
         /// </summary>
         /// <remarks>

@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <div id="fullpage">
         <section class="section s1">
-            <h1>Home Decoration</h1>
+            <h1>Trà Vinh</h1>
         </section>
         <section class="section s2">
             <h1>Different Styles</h1>
@@ -31,7 +31,7 @@
             <h1>Amazing Quality</h1>
         </section>
         <section class="section s4">
-            <h1>Page4</h1>
+            <h1>Xin chào</h1>
         </section>
     </div>
 </asp:Content>

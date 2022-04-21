@@ -79,5 +79,26 @@ namespace dulichtravinh.Models
 
             return binhluans;
         }
+        public static DataTable danhSachBinhLuanNoiBat()
+        {
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+            SqlCommand cmd = new SqlCommand("SP_DanhSachBinhLuanNoiBat", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            DataTable dt = new DataTable();
+            try
+            {
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt); 
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
     }
 }

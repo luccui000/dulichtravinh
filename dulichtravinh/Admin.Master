@@ -17,15 +17,7 @@
     <form id="form1" runat="server">
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand text-uppercase font-weight-bold" href="#">.TraVinh</a>
-                <div style="margin-left: 125px">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Tìm kiếm" >
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon2">Tìm kiếm</span>
-                        </div>
-                    </div>
-                </div>
+                <a class="navbar-brand text-uppercase font-weight-bold" href="#">Vi vu Trà Vinh</a> 
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
@@ -69,8 +61,11 @@
                                     <a href="/Admin/DanhMuc/Index.aspx" class="nav-link">Danh mục</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/Admin/DiaDiem/Create.aspx" class="nav-link">Thêm mới</a>
+                                    <a href="/Admin/BinhLuan/Index.aspx" class="nav-link">Bình luận</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="/Admin/DiaDiem/Create.aspx" class="nav-link">Thêm mới</a>
+                                </li> 
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -100,7 +95,8 @@
                                 </li>
 
                             </ul>
-                        </li>
+                        </li> 
+
                         <li class="nav-item">
                             <a href="/" class="nav-link nav-toggle sidebar__nav--link">
                                 <div class="sidebar__nav--left">

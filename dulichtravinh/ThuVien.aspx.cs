@@ -14,12 +14,10 @@ namespace dulichtravinh
         public List<DiaDiem> danhSachDiaDiem;
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if(!IsPostBack)
-            {
-                danhSachHinhAnh = ThuVien.danhSachHinhAnh("VietNam");
-                danhSachDiaDiem = DiaDiem.danhSachDiaDiem("VietNam");
-            }
+        { 
+            string lang = Session["lang"] != null ? Session["lang"].ToString() : "VietNam";
+            danhSachHinhAnh = ThuVien.danhSachHinhAnh(lang);
+            danhSachDiaDiem = DiaDiem.danhSachDiaDiem(lang);
         }
     }
 }

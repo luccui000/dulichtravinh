@@ -16,6 +16,62 @@
     <link rel = "stylesheet" href = "/Resources/css/style.css">
     <link rel = "stylesheet" href = "/Resources/css/responsive.css">
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <style>
+        .languages {
+            margin-left: 20px;
+        }
+        .languages-link {
+            display: block;
+        }
+        .languages-img {
+            width: 40px;
+        }
+        .search button {
+            margin: 0 10px;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: all .2s linear;
+        }
+        .search-box {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            display: flex;
+        }
+        .search-box input {
+            padding: 20px;
+            width: 600px; 
+            border: 1px solid transparent;
+        }
+        .search-box input:focus {
+            outline: none; 
+        }
+        .search-box input:nth-child(2) { 
+            width: 150px;
+            text-align: center;
+        }
+        #close-modal {
+            position: absolute;
+            top: 20px;
+            right: 220px;   
+        }
+        #close-modal i {
+            z-index: 999;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -27,30 +83,67 @@
 
                 <button type = "button" id = "navbar-show-btn" class = "flex">
                     <i class = "fas fa-bars"></i>
-                </button>
+                </button> 
                 <div id = "navbar-collapse">
                     <button type = "button" id = "navbar-close-btn" class = "flex">
                         <i class = "fas fa-times"></i>
                     </button>
                     <ul class = "navbar-nav">
-                        <li class = "nav-item">
-                            <a href = "/" class = "nav-link">Trang chủ</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "/ThuVien.aspx" class = "nav-link">Thư viện</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "blog.html" class = "nav-link">Blog</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "/GioiThieu.aspx" class = "nav-link">Giới thiệu</a>
-                        </li>
-                        <li class = "nav-item">
-                            <a href = "contact.html" class = "nav-link">Liên hệ</a>
-                        </li>
-                    </ul>
+                        <% if (Session["lang"] != null && String.Equals(Session["lang"], "English")) { %>
+                            <li class = "nav-item">
+                                <a href = "/" class = "nav-link">Home</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "/ThuVien.aspx" class = "nav-link">Gallary</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "blog.html" class = "nav-link">Blog</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "/GioiThieu.aspx" class = "nav-link">Introduction</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "contact.html" class = "nav-link">Contact</a>
+                            </li> 
+                        <% } else { %>
+                            <li class = "nav-item">
+                                <a href = "/" class = "nav-link">Trang chủ</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "/ThuVien.aspx" class = "nav-link">Thư viện</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "blog.html" class = "nav-link">Blog</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "/GioiThieu.aspx" class = "nav-link">Giới thiệu</a>
+                            </li>
+                            <li class = "nav-item">
+                                <a href = "contact.html" class = "nav-link">Liên hệ</a>
+                            </li> 
+                        <% } %>
+                    </ul> 
                 </div>
-            </div>
+                <div class="languages"> 
+                    <asp:LinkButton CssClass="languages-link" runat="server" ID="Language" OnClick="Language_Click">
+                        <asp:Image CssClass="languages-img" ID="imgFlag" ImageUrl="/Resources/images/Vietnam.png" runat="server" /> 
+                    </asp:LinkButton> 
+                </div>
+                <div class="search">
+                    <button type="button" id="open-modal">
+                        <i class="fa fa-search"></i>
+                    </button> 
+                    <div class="overlay">
+                        <div class="search-box">
+                            <asp:TextBox placeholder="Nhập vào từ khóa tìm kiếm" runat="server"></asp:TextBox> 
+                            <asp:Button type="button" runat="server" Text="Tìm kiếm" />  
+                        </div> 
+                        <div id="close-modal">
+                            <i class="fa fa-times"></i>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
         </nav>
         <asp:ContentPlaceHolder ID="content" runat="server">
         </asp:ContentPlaceHolder> 
@@ -61,11 +154,11 @@
                         <a href = "index.html" class = "site-brand">
                             Vi vu<span>Trà Vinh</span>
                         </a>
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet voluptates maiores nam vitae iusto. Placeat rem sint voluptas natus exercitationem autem quod neque, odit laudantium reiciendis ipsa suscipit veritatis voluptate.</p>
+                        <p class = "text">Trà Vinh ngày ấy anh đi<br />Em che vành nón thầm thì bên nhau<br />Nụ hôn say đắm ngọt ngào<br />Hành trang anh mãi cất vào trong tim<br />Nhớ về vùng đất êm đềm<br />Trăng khuya soi bóng bên thềm vấn vương</p>
                     </div>
 
                     <div class = "footer-item">
-                        <h2>Follow us on: </h2>
+                        <h2>Theo dõi chùng mình trên: </h2>
                         <ul class = "social-links">
                             <li>
                                 <a href = "#">
@@ -98,26 +191,34 @@
                     <div class = "footer-item">
                         <h2>Popular Places:</h2>
                         <ul>
-                            <li><a href = "#">Thailand</a></li>
-                            <li><a href = "#">Australia</a></li>
-                            <li><a href = "#">Maldives</a></li>
-                            <li><a href = "#">Switzerland</a></li>
-                            <li><a href = "#">Germany</a></li>
+                            <li><a href = "#">Biển Ba Động</a></li>
+                            <li><a href = "#">Ao Bà Om</a></li>
+                            <li><a href = "#">Điện gió Duyên Hải</a></li>
+                            <li><a href = "#">Bảo tàng Trà Vinh</a></li>
+                            <li><a href = "#">Chùa Cò</a></li>
                         </ul>
-                    </div>
-
-                    <div class = "subscribe-form footer-item">
-                        <h2>Subscribe for Newsletter!</h2>
-                        <div class = "flex">
-                            <input type = "email" placeholder="Enter Email" class = "form-control">
-                            <input type = "submit" class = "btn" value = "Subscribe">
-                        </div>
-                    </div>
+                    </div> 
                 </div>
             </footer>
         <% } %> 
     </form> 
     <script src ="/Resources/js/script.js"></script>
+    <script>
+        const openModal = document.getElementById("open-modal");
+        const closeModal = document.getElementById("close-modal");
+        openModal.addEventListener("click", function () {
+            document.querySelector(".overlay").style.display = "block";
+        })
+        closeModal.addEventListener("click", function () {
+            document.querySelector(".overlay").style.display = "none";
+        })
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+                document.querySelector(".overlay").style.display = "none";
+            }
+        };
+    </script>
     <asp:ContentPlaceHolder runat="server" ID="script"></asp:ContentPlaceHolder>
 </body>
 </html>
