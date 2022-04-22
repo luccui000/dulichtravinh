@@ -68,6 +68,16 @@
         .iframe iframe {
             width: 100%;
         }
+        .hashtag {
+            margin: 10px 0;
+            padding: 0;
+        }
+        .hashtag-item {
+            display: inline-block;
+        }
+        .hashtag-link {
+            color: var(--green);
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
@@ -84,6 +94,12 @@
         </div>
     </header>
     <div class="post-container">  
+        <ul class="hashtag">
+            <% foreach (var tag in danhSachHashTag) { %>
+                <li class="hashtag-item"><a class="hashtag-link" href="#">#<% Response.Write(tag.TenTag); %></a></li>
+            <% } %>  
+        </ul>
+        
         <p><asp:Label ID="lblMoTa" Text="" runat="server" /></p>  
         <p><asp:Label ID="lblIframe" CssClass="iframe" runat="server" /></p>
         <div class="line"></div>

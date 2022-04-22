@@ -21,7 +21,7 @@ namespace dulichtravinh
                 danhSachBinhLuan(grvBinhLuan, 2);
                 danhSachBinhLuan(grvBinhLuanChuaDuyet, 0);
                 danhSachBinhLuan(grvBinhLuanDaDuyet, 1);
-                danhSachBinhLuanNoiBat();
+                // danhSachBinhLuanNoiBat();
                 grvNoiBat.DataSource = BinhLuan.danhSachBinhLuanNoiBat();
                 grvNoiBat.DataBind();
             }

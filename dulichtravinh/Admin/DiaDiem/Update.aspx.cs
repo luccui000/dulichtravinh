@@ -9,6 +9,8 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using dulichtravinh.Models;
+using System.Web.Script.Serialization;
+using dulichtravinh.Services;
 
 namespace dulichtravinh
 {
@@ -52,7 +54,25 @@ namespace dulichtravinh
                 conn.Close();
             }
         }
-
+        protected string getTags
+        {
+            get
+            {
+                List<Tag> tags = (new TagService()).getTags();
+                List<TagSelect> tagSelects = new List<TagSelect>();
+                string tagStr = string.Empty;
+                foreach (var tag in tags)
+                {
+                    tagSelects.Add(new TagSelect()
+                    {
+                        id = tag.Id,
+                        name = tag.TenTag
+                    });
+                }
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                return js.Serialize(tagSelects);
+            }
+        }
         protected void btnSaveAndContinue_Click(object sender, EventArgs e)
         {
             string TenDiaDiem = txtTenDiaDiem.Text;

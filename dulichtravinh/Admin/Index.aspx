@@ -98,10 +98,10 @@
                                         1
                                     </td>
                                     <td>
-                                        <a href="#">Bai 1</a>
+                                        <a href="#">Lễ hội Ok om bok</a>
                                     </td>
                                     <td>
-                                        88 lượt
+                                        880 lượt
                                     </td> 
                                 </tr>
                                 <tr>
@@ -109,10 +109,10 @@
                                         2
                                     </td>
                                     <td>
-                                        <a href="#">Bai 2</a>
+                                        <a href="#">Ba Động - Bãi biển đẹp nhất xứ Trà Vinh</a>
                                     </td>
                                     <td>
-                                        12 lượt
+                                        612 lượt
                                     </td> 
                                 </tr>
                                 <tr>
@@ -120,10 +120,10 @@
                                         3
                                     </td>
                                     <td>
-                                        <a href="#">Bai 3</a>
+                                        <a href="#">Lễ hội Đua Ghe Ngo</a>
                                     </td>
                                     <td>
-                                        9 lượt
+                                        99 lượt
                                     </td> 
                                 </tr>
                             </tbody>

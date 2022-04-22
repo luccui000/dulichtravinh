@@ -67,12 +67,37 @@ namespace dulichtravinh
             string MoTaNgan = txtMoTaNgan.Text.Trim();
             string MoTaNganTiengAnh = txtMoTaNganTiengAnh.Text.Trim();
             string Iframe = txtIFrame.Text.Trim();
-            float KinhDo = string.IsNullOrEmpty(txtKinhDo.Text.Trim()) ? 0 : float.Parse(txtKinhDo.Text.Trim());
-            float ViDo = string.IsNullOrEmpty(txtViDo.Text.Trim()) ? 0 : float.Parse(txtViDo.Text.Trim());
+            string KinhDo = txtKinhDo.Text.Trim();
+            string ViDo = txtViDo.Text.Trim();
             string DiaChi = txtDiaChi.Text.Trim();
             string MoTa = txtMoTa.Text.Trim();
             string MoTaTiengAnh = txtMoTaTiengAnh.Text.Trim();
             int hinhAnhId = string.IsNullOrEmpty(txtHinhAnhId.Value.Trim()) ? 1 : int.Parse(txtHinhAnhId.Value.Trim());
+
+            Response.Write(MoTa);
+            //int Id = Models.DiaDiem.themMoi(
+            //    hinhAnhId,
+            //    DiaChi,
+            //    Iframe,
+            //    KinhDo.ToString(),
+            //    ViDo.ToString(),
+            //    1,
+            //    TenDiaDiem,
+            //    tenDiaDiemTiengAnh,
+            //    MoTa,
+            //    MoTaTiengAnh,
+            //    MoTaNgan,
+            //    MoTaNganTiengAnh,
+            //    txtTagField.Value
+            //);
+            //if (Id > 0)
+            //{
+            //    Response.Write(Alert.Success("Thêm mới thành công"));
+            //}
+            //else
+            //{
+            //    Response.Write(Alert.Error("Có lỗi xảy ra"));
+            //}
 
             SqlConnection conn = new SqlConnection(this.connectionString);
             SqlCommand cmd = new SqlCommand("SP_ThemMoiDiaDiem", conn);
@@ -85,7 +110,7 @@ namespace dulichtravinh
             cmd.Parameters.AddWithValue("@ViDo", ViDo);
             cmd.Parameters.AddWithValue("@NguoiTao", 1);
             cmd.Parameters.AddWithValue("@TenDiaDiem", TenDiaDiem);
-            cmd.Parameters.AddWithValue("@TenDiaDiemTiengAnh", TenDiaDiem);
+            cmd.Parameters.AddWithValue("@TenDiaDiemTiengAnh", tenDiaDiemTiengAnh);
             cmd.Parameters.AddWithValue("@MoTa", MoTa);
             cmd.Parameters.AddWithValue("@MoTaTiengAnh", MoTaTiengAnh);
             cmd.Parameters.AddWithValue("@MoTaNgan", MoTaNgan);

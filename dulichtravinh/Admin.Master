@@ -66,6 +66,9 @@
                                 <li class="nav-item">
                                     <a href="/Admin/DiaDiem/Create.aspx" class="nav-link">Thêm mới</a>
                                 </li> 
+                                <li class="nav-item">
+                                    <a href="/Admin/Blog/Index.aspx" class="nav-link">Blog</a>
+                                </li> 
                             </ul>
                         </li>
                         <li class="nav-item">

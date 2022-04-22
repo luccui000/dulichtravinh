@@ -15,7 +15,8 @@ namespace dulichtravinh
 {
     public partial class WebForm12 : System.Web.UI.Page
     {
-        public int Id;
+        public int Id; 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Request.QueryString["Id"]))
@@ -44,7 +45,9 @@ namespace dulichtravinh
                         lblMoTaNgan.Text = reader.GetString(3);
                         lblMoTa.Text = reader.GetString(4);
                         lblIframe.Text = !reader.IsDBNull(6) ? new HtmlString(reader.GetString(6)).ToHtmlString() : ""; 
-                    }
+                    } 
+                    // 
+                    
                 }
                 catch (Exception ex)
                 {
@@ -57,11 +60,49 @@ namespace dulichtravinh
             }
 
         } 
+        public void kiemTraId()
+        {
+            if (string.IsNullOrEmpty(Request.QueryString["Id"]))
+                Response.Redirect("/");
+            bool isNumeric = int.TryParse(Request.QueryString["Id"], out Id);
+            if (!isNumeric)
+                Response.Redirect("/");
+        } 
         public List<BinhLuan> danhSachBinhLuan
         {
             get
-            {
+            { 
                 return BinhLuan.danhSachBinhLuan(Id);
+            }
+        }
+        public List<Tag> danhSachHashTag
+        {
+            get
+            {
+                var tags = new List<Tag>();
+                SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+                SqlCommand cmd = new SqlCommand("SP_LayHashTagTheoBaiVietId", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        tags.Add(new Tag()
+                        {
+                            Id = reader.GetInt32(6),
+                            TenTag = reader.GetString(7),
+                            MoTa = reader.GetString(8)
+                        });
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                }
+                return tags;
             }
         }
         protected void loginWithGoogle_click(object sender, EventArgs e)

@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="Auth\Callback.aspx" />
     <Content Include="Resources\css\app.css" />
+    <Content Include="Resources\css\blog.css" />
     <Content Include="Resources\css\ckeditor.css" />
     <Content Include="Resources\css\fullpage.min.css" />
     <Content Include="Resources\css\gioithieu.css" />
@@ -119,6 +120,7 @@
     <Content Include="Resources\images\gallery-8.jpg" />
     <Content Include="Resources\images\gallery-9.jpg" />
     <Content Include="Resources\images\header-bg.jpg" />
+    <Content Include="Resources\images\lam.jpg" />
     <Content Include="Resources\images\lamp.png" />
     <Content Include="Resources\images\popular-1.jpg" />
     <Content Include="Resources\images\popular-2.jpg" />
@@ -133,6 +135,7 @@
     <Content Include="Resources\images\test-1.jpg" />
     <Content Include="Resources\images\test-2.jpg" />
     <Content Include="Resources\images\test-3.jpg" />
+    <Content Include="Resources\images\thinh.jpg" />
     <Content Include="Resources\images\tra-vinh-day-nhanh-tien-do-cac-du-an-dau-tu-8844.jpg" />
     <Content Include="Resources\images\Vietnam.png" />
     <Content Include="Resources\js\fullpage.min.js" />
@@ -161,6 +164,8 @@
     <Content Include="BaiViet.aspx" />
     <Content Include="GioiThieu.aspx" />
     <Content Include="Admin\BinhLuan\Index.aspx" />
+    <Content Include="Blog.aspx" />
+    <Content Include="Admin\Blog\Index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -193,6 +198,7 @@
     <Compile Include="Helpers\Translator.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BinhLuan.cs" />
+    <Compile Include="Models\Blog.cs" />
     <Compile Include="Models\DanhMuc.cs" />
     <Compile Include="Models\DiaDiem.cs" />
     <Compile Include="Models\GoogleToken.cs" />
@@ -317,6 +323,20 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\BinhLuan\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Blog.aspx.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blog.aspx.designer.cs">
+      <DependentUpon>Blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Blog\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Blog\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

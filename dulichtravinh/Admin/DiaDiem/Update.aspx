@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Update.aspx.cs" Inherits="dulichtravinh.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Resources/css/ckeditor.css" rel="stylesheet" />
+    <link href="/Resources/dist/jquery-magicsuggest/magicsuggest.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
     <div class="container-fluid">
@@ -111,10 +112,16 @@
                                         </button> 
                                     </div>
                                 </div>
-                                <asp:HiddenField ID="txtHinhAnhId" runat="server" />
+                                <asp:HiddenField ID="txtHinhAnhId" runat="server" /> 
                                 <div class="row">
                                     <div class="col-12">
-                                        <asp:Button Text="Thêm mới" CssClass="btn btn-primary mt-2" runat="server" />
+                                        <div class="card">
+                                            <h5 class="card-header">Tag</h5>
+                                            <div class="card-body">
+                                                <asp:HiddenField ID="txtTagField" runat="server" /> 
+                                                <input id="txtTags" name="name" value="" />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -177,6 +184,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="script" runat="server">
+    <script src="/Resources/js/magicsuggest.js"></script> 
     <script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script> 
     <script>
         function initMap() {
@@ -199,6 +207,13 @@
             const images = document.querySelectorAll(".hinhanh"); 
             const DEBOUND_AJAX_TIMER = 500;
             var editors = [];
+
+            let tagsSelected =  $(`#txtTags`).magicSuggest({
+                data: eval('<% Response.Write(getTags); %>')
+            });
+            $(tagsSelected).on('selectionchange', function (e, m) { 
+                $(`#${PREFIX}_txtTagField`).val(this.getValue());
+            })
 
             createEditor('txtMoTa', '<% Response.Write(txtMoTa.Text); %>')
             createEditor('txtMoTaTiengAnh', '<% Response.Write(txtMoTaTiengAnh.Text); %>')

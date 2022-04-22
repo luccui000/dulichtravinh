@@ -113,7 +113,7 @@
                                 <a href = "/ThuVien.aspx" class = "nav-link">Thư viện</a>
                             </li>
                             <li class = "nav-item">
-                                <a href = "blog.html" class = "nav-link">Blog</a>
+                                <a href = "/Blog.aspx" class = "nav-link">Blog</a>
                             </li>
                             <li class = "nav-item">
                                 <a href = "/GioiThieu.aspx" class = "nav-link">Giới thiệu</a>

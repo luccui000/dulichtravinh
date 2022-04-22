@@ -83,31 +83,31 @@
 
                 <div class = "test-row">
                     <div class = "test-item">
-                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda blanditiis, asperiores, velit iste eos officiis tempora magni quaerat quo consectetur expedita cum recusandae facere nam voluptate minus iusto eum. Delectus!</p>
+                        <p class = "text">Người dân ở đây thân thiện, vui tươi, đặc biệt rất là hiếu khách luôn nha mọi người!</p>
                         <div class = "test-item-info">
-                            <img src = "/Resources/images/test-1.jpg" alt = "testimonial">
+                            <img src = "https://luccui000.github.io/luccui/user.jpeg" alt = "testimonial">
                             <div>
-                                <h3>Kevin Wilson</h3> 
+                                <h3>Minh Lực</h3> 
                             </div>
                         </div>
                     </div>
 
                     <div class = "test-item">
-                        <p class = "text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed ut dolores tenetur harum deserunt. Maxime tenetur consectetur recusandae nobis fugit iusto natus quibusdam nulla!</p>
+                        <p class = "text">Nghe sơ sơ thấy người ta bảo người Trà Vinh dễ thương lắm, những cũng chỉ nghĩ rằng bình thường thôi. Vậy mà đến miền Tây và ghé qua Trà Vinh rồi ta mới thấy con người nơi đây cưng quá à! Dễ gần quá luôn!!</p>
                         <div class = "test-item-info">
-                            <img src = "/Resources/images/test-2.jpg" alt = "testimonial">
+                            <img src = "/Resources/images/lam.jpg" alt = "testimonial">
                             <div>
-                                <h3>Ben Davis</h3> 
+                                <h3>Kim Lam</h3> 
                             </div>
                         </div>
                     </div>
 
                     <div class = "test-item">
-                        <p class = "text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem sapiente amet expedita quae autem deleniti quo magni numquam facilis soluta dicta, praesentium ipsum, quos optio sed quibusdam! Reprehenderit recusandae provident id nemo!</p>
+                        <p class = "text">Người miền Tây nổi tiếng phóng khoáng, rộng rãi, ân cần chu đáo cực luôn, bụng dạ thật lòng muốn nói điều gì là nói ra điều ấy, không nói vòng vo tam quốc đâu nha!</p>
                         <div class = "test-item-info">
-                            <img src = "/Resources/images/test-3.jpg" alt = "testimonial">
+                            <img src = "/Resources/images/thinh.jpg" alt = "testimonial">
                             <div>
-                                <h3>Jaura Jones</h3> 
+                                <h3>Phước Thịnh</h3> 
                             </div>
                         </div>
                     </div>

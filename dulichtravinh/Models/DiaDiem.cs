@@ -76,6 +76,70 @@ namespace dulichtravinh.Models
             get;
             set;
         }
+        public static int themMoi(
+            int hinhAnhId,
+            string DiaChi,
+            string Iframe,
+            string KinhDo,
+            string ViDo,
+            int NguoiTao,
+            string TenDiaDiem,
+            string TenDiaDiemTiengAnh,
+            string MoTa,
+            string MoTaTiengAnh,
+            string MoTaNgan,
+            string MoTaNganTiengAnh,
+            string Tags
+        ) {
+            SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
+            SqlCommand cmd = new SqlCommand("SP_ThemMoiDiaDiem", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@HinhAnhId", hinhAnhId);
+            cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
+            cmd.Parameters.AddWithValue("@Iframe", Iframe);
+            cmd.Parameters.AddWithValue("@KinhDo", KinhDo);
+            cmd.Parameters.AddWithValue("@ViDo", ViDo);
+            cmd.Parameters.AddWithValue("@NguoiTao", 1);
+            cmd.Parameters.AddWithValue("@TenDiaDiem", TenDiaDiem);
+            cmd.Parameters.AddWithValue("@TenDiaDiemTiengAnh", TenDiaDiem);
+            cmd.Parameters.AddWithValue("@MoTa", MoTa);
+            cmd.Parameters.AddWithValue("@MoTaTiengAnh", MoTaTiengAnh);
+            cmd.Parameters.AddWithValue("@MoTaNgan", MoTaNgan);
+            cmd.Parameters.AddWithValue("@MoTaNganTiengAnh", MoTaNganTiengAnh);
+            cmd.Parameters.Add("@Id", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            int Id = 0;
+            try
+            {
+                conn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                { 
+                    Id = int.Parse(cmd.Parameters["@Id"].Value.ToString());
+                    string[] tagIds = Tags.Split(',');
+                    foreach (var tagId in tagIds)
+                    {
+                        SqlCommand cmd2 = new SqlCommand("SP_ThemMoiDiaDiemTag", conn);
+                        cmd2.CommandType = CommandType.StoredProcedure;
+
+                        cmd2.Parameters.AddWithValue("@DiaDiemId", Id);
+                        cmd2.Parameters.AddWithValue("@TagId", tagId);
+                        cmd2.ExecuteNonQuery();
+                    }
+                    return Id;
+                } 
+            }
+            catch (Exception ex)
+            {
+                Id = 0;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return Id;
+        }
         public static List<DiaDiem> danhSachDiaDiem(string ngonNgu)
         {
             SqlConnection conn = new SqlConnection(Constant.CONNECTION_STRING);
@@ -166,5 +230,6 @@ namespace dulichtravinh.Models
             finally { this.conn.Close(); }
             return this;
         }
+        
     }
 }
